@@ -1,0 +1,42 @@
+<template name="Standings">
+
+  <section class="main standings">
+
+    <nav class="sub two">
+      <ul>
+        <li class="active"><a href="#group-stage">Group stage</a></li>
+        <li><a href="#finals">Knock-out stage</a></li>
+      </ul>
+    </nav>
+
+    {{#each groups}}
+    <h3>{{name}}</h3>
+    <table>
+      <thead>
+        <tr>
+          <th class="team">Team</th>
+          <th>W<span>on</span></th>
+          <th>D<span>raw</span></th>
+          <th>L<span>ost</span></th>
+          <th>+/-</th>
+          <th>Points</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each teams}}
+        <tr>
+          <td class="team"><div class="flag {{machineName name}}"></div> {{name}}</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td><strong>0</strong></td>
+        </tr>
+        {{/each}}
+              </tbody>
+    </table>
+    {{/each}}
+
+  </section>
+
+</template>

@@ -1,0 +1,44 @@
+/*****************************************************************************/
+/* Teams: Style */
+/*****************************************************************************/
+.standings {
+  padding-top: 40px;
+
+  table {
+    margin: 20px 0;
+    width: 100%;
+  }
+
+  th, td {
+    padding: 10px;
+    text-align: center;
+
+    &:first-child {
+      text-align: left;
+    }
+  }
+
+  .team {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 50%;
+    white-space: nowrap;
+  }
+
+  th span {
+    display: none;
+  }
+
+  tr {
+    &:nth-child(odd) td {
+      background-color: lighten(#5E9356, 45);
+    }
+  }
+
+  .flag {
+    float: left;
+    height: 20px;
+    margin: 0 10px 0 0;
+    width: 20px;
+  }
+}

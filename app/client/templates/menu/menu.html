@@ -1,0 +1,32 @@
+<template name="Menu">
+
+  <nav class="main">
+    <ul>
+      <li>
+        <a href="/matches" class="{{isActive 'matches'}}">
+          <i class="icon-calendar"></i>
+          <span>Matches</span>
+        </a>
+      </li>
+      <li>
+        <a href="/standings" class="{{isActive 'standings'}}">
+          <i class="icon-trophy"></i>
+          <span>Standings</span>
+        </a>
+      </li>
+      <li>
+        <a href="/chat" class="{{isActive 'chat'}}">
+          <i class="icon-chat"></i>
+          <span>Chat</span>
+        </a>
+      </li>
+      <li>
+        <a href="/bet" class="{{isActive 'bet'}}">
+          <i class="icon-money"></i>
+          <span>Bet</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+</template>

@@ -1,0 +1,26 @@
+<template name="Matches">
+
+  <nav class="sub two">
+    <ul>
+      <li class="active"><a href="#group-stage">Group stage</a></li>
+      <li><a href="#finals">Knock-out stage</a></li>
+    </ul>
+  </nav>
+  
+  <section class="main matches">
+
+    {{#each groupMatches}}
+      <h3>{{dateFormat date}}</h3>
+      <div class="team1">
+        <div class="flag {{machineName team1name}}"></div>
+        <div class="country">{{team1name}}</div>
+      </div>
+      <div class="team2">
+        <div class="flag {{machineName team2name}}"></div>
+        <div class="country">{{team2name}}</div>
+      </div>
+      <div class="info">{{timeFormat date}}</div>
+    {{/each}}
+
+  </section>
+</template>
