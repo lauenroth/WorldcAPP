@@ -2,4 +2,84 @@
 /* Bet: Style */
 /*****************************************************************************/
 .bet {
+  background-color: #e3ede1;
+
+  .team1,
+  .team2 {
+    padding: 20px 0 0;
+  }
+
+  .betting {
+    background: url(/images/pitch.png) no-repeat bottom;
+    background-size: contain;
+    clear: both;
+    height: 120px;
+  }
+
+  .bet-team1,
+  .bet-team2 {
+    background-color: #fff;
+    border-radius: 4px;
+    float: left;
+    font-size: 36px;
+    height: 60px;
+    line-height: 60px;
+    margin-left: 22%;
+    margin-top: 20px;
+    text-align: center;
+    width: 60px;
+  }
+  .bet-team2 {
+    float: right;
+    margin-left: auto;
+    margin-right: 22%;
+  }
+
+  .set-bet1,
+  .set-bet2 {
+    background-color: #fff;
+    border-radius: 4px;
+    float: left;
+    margin: 20px;
+    padding: 10px 0 0 10px;
+    position: relative;
+    width: 115px;
+
+    &:before {
+      background-color: #fff;
+      content: '';
+      position: absolute;
+      height: 20px;
+      right: 20px;
+      top: -10px;
+      transform: rotate(45deg);
+      width: 20px;
+    }
+
+    a {
+      background-color: #5E9356;
+      border-radius: 4px;
+      color: #fff;
+      display: inline-block;
+      font-size: 20px;
+      line-height: 40px;
+      margin-bottom: 10px;
+      margin-right: 10px;
+      position: relative;
+      height: 40px;
+      text-align: center;
+      text-decoration: none!important;
+      width: 40px;
+      z-index: 1;
+    }
+  }
+
+  .set-bet2 {
+    float: right;
+
+    &:before {
+      left: 20px;
+      right: auto;
+    }
+  }
 }
