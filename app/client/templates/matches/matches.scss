@@ -3,11 +3,20 @@
 /*****************************************************************************/
 .matches {
   padding-top: 40px;
+
+  .match {
+    clear: both;
+    border-bottom: 1px solid #e3ede1;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
 }
 
 .team1, .team2 {
   font-size: 20px;
-  padding: 15px;
+  padding: 8px 15px 15px;
   position: relative;
   text-align: center;
   width: 40%;
@@ -19,9 +28,11 @@
   }
 }
 .team1 {
+  clear: left;
   float: left;
 }
 .team2 {
+  clear: right;
   float: right;
 
   .flag {
@@ -33,8 +44,24 @@
 .info {
   font-size: 22px;
   height: 112px;
-  padding: 25px 40% 0;
+  padding: 40px 40% 0;
   text-align: center;
+
+  .sub {
+    color: #5E9356;
+    font-size: 12px;
+  }
+}
+
+.group,
+.stadium {
+  color: #5E9356;
+  font-size: 10px;
+  float: left;
+  margin: 5px 5px 0;
+}
+.stadium {
+  float: right;
 }
 
 .flag {
