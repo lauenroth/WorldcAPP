@@ -7,15 +7,24 @@
   .match {
     background-color: #5E9356;
     color: #fff;
-    height: 80px;
+    height: 55px;
+
+    .team1,
+    .team2 {
+      padding: 8px;
+    }
 
     .flag {
-      height: 30px;
-      margin-bottom: 5px;
-      width: 30px;
+      height: 22px;
+      margin-bottom: 1px;
+      width: 22px;
     }
     .country {
-      font-size: 14px;
+      font-size: 12px;
+    }
+    .info {
+      height: auto;
+      padding: 15px 40%;
     }
   }
 
@@ -33,6 +42,7 @@
 }
 
 .bubble {
+  background-color: #f8faf7;
   border: 1px solid #5E9356;
   border-radius: 6px;
   color: #5E9356;
@@ -44,7 +54,7 @@
   position: relative;
 
   &:before {
-    background-color: #fff;
+    background-color: #f8faf7;
     border: 1px solid #5E9356;
     border-color: #5E9356 transparent transparent #5E9356;
     content: '';
@@ -70,6 +80,6 @@
     color: #999;
     float: right;
     font-size: 10px;
-    margin-top: 4px;
+    margin: 2px 0 0 10px;
   }
 }

@@ -1,7 +1,23 @@
+Template.Chat.addChat = function(text, me) {
+  const newText = $('<div class="bubble' + (me?' me':'') + '">' +
+    '<div class="time">10:15</div>' +
+    '<strong>' + (me?'Lionel':'Adele') + '</strong>' +
+    '<div>' + text + '</div>' +
+  '</div>');
+  $('.conversation').append(newText);
+};
+
 /*****************************************************************************/
 /* Chat: Event Handlers */
 /*****************************************************************************/
 Template.Chat.events({
+  'submit form': function(e) {
+    e.preventDefault();
+    const $input = $('#chat-text');
+    const text = $input.val();
+    $input.val('');
+    Template.Chat.addChat(text, true);
+  }
 });
 
 /*****************************************************************************/
