@@ -1,11 +1,6 @@
 <template name="Matches">
 
-  <nav class="sub two">
-    <ul>
-      <li class="active"><a href="#group-stage">Group stage</a></li>
-      <li><a href="#finals">Knock-out stage</a></li>
-    </ul>
-  </nav>
+  {{> Stages}}
 
   <section class="main matches">
     {{#each groupMatches}}

@@ -1,0 +1,10 @@
+<template name="Stages">
+
+  <nav class="sub two stages">
+    <ul>
+      <li class="group-stage {{#if isGroupStage}}active{{/if}}"><a href="#group-stage">Group stage</a></li>
+      <li class="knock-out-stage {{#unless isGroupStage}}active{{/unless}}"><a href="#finals">Knock-out stage</a></li>
+    </ul>
+  </nav>
+
+</template>

@@ -18,6 +18,7 @@ Template.Layout.onCreated(function () {
 
 Template.Layout.onRendered(function () {
   Session.set('tournament', 'euro2016');
+  Session.set('stage', 'group');
 });
 
 Template.Layout.onDestroyed(function () {

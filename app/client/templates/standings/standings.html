@@ -2,12 +2,7 @@
 
   <section class="main standings">
 
-    <nav class="sub two">
-      <ul>
-        <li class="active"><a href="#group-stage">Group stage</a></li>
-        <li><a href="#finals">Knock-out stage</a></li>
-      </ul>
-    </nav>
+    {{> Stages}}
 
     {{#each groups}}
     <h3>{{name}}</h3>
@@ -26,11 +21,11 @@
         {{#each teams}}
         <tr>
           <td class="team"><div class="flag {{machineName name}}"></div> {{name}}</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td><strong>0</strong></td>
+          <td>{{won}}</td>
+          <td>{{draw}}</td>
+          <td>{{lost}}</td>
+          <td>{{goalDifference this}}</td>
+          <td><strong>{{points}}</strong></td>
         </tr>
         {{/each}}
               </tbody>
