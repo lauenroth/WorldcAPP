@@ -38,9 +38,21 @@
     },
     {
       "uid": "fd3128bf109153952b1b775ea574504b",
-      "css": "user-1",
-      "code": 59398,
+      "css": "user",
+      "code": 59397,
       "src": "websymbols"
+    },
+    {
+      "uid": "7bf14281af5633a597f85b061ef1cfb9",
+      "css": "detail",
+      "code": 59398,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "cb13afd4722a849d48056540bb74c47e",
+      "css": "play",
+      "code": 59399,
+      "src": "entypo"
     }
   ]
 }

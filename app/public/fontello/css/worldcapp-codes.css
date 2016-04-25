@@ -4,4 +4,6 @@
 .icon-chat:before { content: '\e802'; } /* '' */
 .icon-money:before { content: '\e803'; } /* '' */
 .icon-football:before { content: '\e804'; } /* '' */
-.icon-user-1:before { content: '\e806'; } /* '' */
+.icon-user:before { content: '\e805'; } /* '' */
+.icon-detail:before { content: '\e806'; } /* '' */
+.icon-play:before { content: '\e807'; } /* '' */
