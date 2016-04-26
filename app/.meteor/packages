@@ -35,3 +35,6 @@ aldeed:simple-schema
 aldeed:collection2
 
 momentjs:moment         # Date and time
+
+appcache                # Basic caching
+ground:db               # Ground Meteor.Collections offline
