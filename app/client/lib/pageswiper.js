@@ -42,8 +42,8 @@
               if (-1 * index * pageWidth - 0.2 * pageWidth > left) pageIndex++;
               else if (-1 * index * pageWidth + 0.2 * pageWidth < left) pageIndex--;
               $pageWrapper.animate({
-                left: pageIndex * -100 + '%'
-              }, 100);
+                left: pageIndex * -1 * pageWidth
+              }, 300);
               startX = false;
             }
           }
