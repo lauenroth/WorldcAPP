@@ -2,15 +2,24 @@
 
   <section class="main bet">
 
-    <h3>Group Stage - 10/06/2016</h3>
+    <h3>
+      <a href="/bets" class="back"><i class="icon-detail"></i></a>
+      {{#if isGroupStage}}
+        Group Stage
+      {{else}}
+        Knock-out Stage
+      {{/if}}
+      -
+      {{dateFormat match.date}}
+    </h3>
 
     <div class="team1">
-      <div class="flag france"></div>
-      <div class="country">France</div>
+      <div class="flag {{machineName match.team1name}}"></div>
+      <div class="country">{{match.team1name}}</div>
     </div>
     <div class="team2">
-      <div class="flag romania"></div>
-      <div class="country">Romania</div>
+      <div class="flag {{machineName match.team2name}}"></div>
+      <div class="country">{{match.team2name}}</div>
     </div>
 
     <div class="betting">
@@ -23,7 +32,7 @@
       <a href="#1">1</a>
       <a href="#2">2</a>
       <a href="#3">3</a>
-      <a href="#-">-</a>
+      <a href="#-">4</a>
       <a href="#+">+</a>
     </div>
     <div class="set-bet2">
@@ -31,14 +40,18 @@
       <a href="#1">1</a>
       <a href="#2">2</a>
       <a href="#3">3</a>
-      <a href="#-">-</a>
+      <a href="#-">4</a>
       <a href="#+">+</a>
     </div>
 
+    <nav style="clear: both; margin: 0 auto; padding: 40px 0 0; text-align: center;">
+      <a href="#prev" class="btn prev" style="float: left; margin-left: 20px; width: 115px;">Previous</a>
+      <a href="#next" class="btn next" style="float: right; margin-right: 20px; width: 115px;">Next</a>
+    </nav>
+
   </section>
 
-  <a href="#prev" class="btn">Previous</a>
-  <a href="#next" class="btn">Next</a>
+
 
   {{> loginButtons align="right"}}
 </template>

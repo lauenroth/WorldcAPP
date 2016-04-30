@@ -1,4 +1,4 @@
-Matches = new Mongo.Collection('matches');
+Matches = new Ground.Collection('matches');
 
 
 /* Schema */

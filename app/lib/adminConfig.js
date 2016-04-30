@@ -56,7 +56,20 @@ AdminConfig = {
         }
       ]
     },
-    // Bets: {},
+
+    Bets: {
+      tableColumns: [
+        {
+          label: 'Match',
+          name: 'match'
+        },
+        {
+          label: 'User',
+          name: 'userId'
+        }
+      ]
+    },
+
   },
 
   autoForm: {

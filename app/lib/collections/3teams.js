@@ -1,4 +1,4 @@
-Teams = new Mongo.Collection('teams');
+Teams = new Ground.Collection('teams');
 
 
 /* Schema */
@@ -18,28 +18,28 @@ TeamSchema = new SimpleSchema({
   tournament: {
     type: String,
     label: 'Tournament',
-    autoform: {
-      options: _.map(Tournaments.find().fetch(), function(tournament) {
-        return {
-          label: tournament.name,
-          value: tournament._id
-        };
-      })
-    }
+    // autoform: {
+    //   options: _.map(Tournaments.find().fetch(), function(tournament) {
+    //     return {
+    //       label: tournament.name,
+    //       value: tournament._id
+    //     };
+    //   })
+    // }
   },
 
   group: {
     type: String,
     label: 'Group',
     optional: true,
-    autoform: {
-      options: _.map(Groups.find().fetch(), function(group) {
-        return {
-          label: group.name + ' (' + group.tournament + ')',
-          value: group._id
-        };
-      })
-    }
+    // autoform: {
+    //   options: _.map(Groups.find().fetch(), function(group) {
+    //     return {
+    //       label: group.name + ' (' + group.tournament + ')',
+    //       value: group._id
+    //     };
+    //   })
+    // }
   },
 
   won: {
@@ -69,6 +69,12 @@ TeamSchema = new SimpleSchema({
   goalsAgainst: {
     type: Number,
     label: 'Goals agains',
+    defaultValue: 0
+  },
+
+  points: {
+    type: Number,
+    label: 'Points',
     defaultValue: 0
   },
 

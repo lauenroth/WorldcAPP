@@ -1,4 +1,4 @@
-Tournaments = new Mongo.Collection('tournaments');
+Tournaments = new Ground.Collection('tournaments');
 
 
 /* Schema */

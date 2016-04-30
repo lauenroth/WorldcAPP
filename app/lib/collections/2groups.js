@@ -1,4 +1,4 @@
-Groups = new Mongo.Collection('groups');
+Groups = new Ground.Collection('groups');
 
 
 /* Schema */

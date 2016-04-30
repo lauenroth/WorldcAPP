@@ -4,6 +4,14 @@
 .bet {
   background-color: #e3ede1;
 
+  .back {
+    color: #5E9356;
+    float: left;
+    font-size: 30px;
+    margin: -5px -12px;
+    transform: rotate(180deg);
+  }
+
   .team1,
   .team2 {
     padding: 20px 0 0;
