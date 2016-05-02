@@ -10,21 +10,21 @@
         Knock-out Stage
       {{/if}}
       -
-      {{dateFormat match.date}}
+      {{dateFormat currentMatch.date}}
     </h3>
 
     <div class="team1">
-      <div class="flag {{machineName match.team1name}}"></div>
-      <div class="country">{{match.team1name}}</div>
+      <div class="flag {{machineName currentMatch.team1name}}"></div>
+      <div class="country">{{currentMatch.team1name}}</div>
     </div>
     <div class="team2">
-      <div class="flag {{machineName match.team2name}}"></div>
-      <div class="country">{{match.team2name}}</div>
+      <div class="flag {{machineName currentMatch.team2name}}"></div>
+      <div class="country">{{currentMatch.team2name}}</div>
     </div>
 
     <div class="betting">
-      <div class="bet-team1"></div>
-      <div class="bet-team2"></div>
+      <div class="bet-team1">{{#if currentMatch.bet}}{{currentMatch.bet.score1}}{{/if}}</div>
+      <div class="bet-team2">{{#if currentMatch.bet}}{{currentMatch.bet.score2}}{{/if}}</div>
     </div>
 
     <div class="set-bet1">
@@ -45,8 +45,8 @@
     </div>
 
     <nav style="clear: both; margin: 0 auto; padding: 40px 0 0; text-align: center;">
-      <a href="#prev" class="btn prev" style="float: left; margin-left: 20px; width: 115px;">Previous</a>
-      <a href="#next" class="btn next" style="float: right; margin-right: 20px; width: 115px;">Next</a>
+      {{#if hasPrevMatch}}<a href="#prev" class="btn prev" style="float: left; margin-left: 20px; width: 115px;">Previous</a>{{/if}}
+      {{#if hasNextMatch}}<a href="#next" class="btn next" style="float: right; margin-right: 20px; width: 115px;">Next</a>{{/if}}
     </nav>
 
   </section>
