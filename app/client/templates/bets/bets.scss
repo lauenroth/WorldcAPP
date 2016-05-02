@@ -1,0 +1,43 @@
+/*****************************************************************************/
+/* Bets: Style */
+/*****************************************************************************/
+.bets {
+  padding-top: 40px;
+
+  .match {
+    height: 70px;
+    overflow: hidden;
+    position: relative;
+
+    .team1,
+    .team2 {
+      padding: 0;
+    }
+
+    .country {
+      font-size: 12px;
+    }
+  }
+
+  .icon-detail {
+    color: #5E9356;
+    font-size: 30px;
+    position: absolute;
+    right: 0;
+    top: 12px;
+  }
+
+  .date {
+    margin-bottom: -8px;
+  }
+
+  .flag {
+    height: 25px;
+    width: 25px;
+  }
+
+  .info {
+    height: auto;
+    padding-top: 15px;
+  }
+}

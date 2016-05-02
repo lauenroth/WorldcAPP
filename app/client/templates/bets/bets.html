@@ -1,0 +1,46 @@
+<template name="Bets">
+
+  <nav class="sub two">
+    <ul>
+      <li class="active"><a href="/bets">Your bets</a></li>
+      <li><a href="/ranking">Ranking</a></li>
+    </ul>
+  </nav>
+
+  <div class="pages-wrapper">
+
+    <div class="page">
+      <section class="main bets">
+        <h3 class="fixed">Group stage</h3>
+        <h3>Group stage</h3>
+        {{#each groupMatches}}
+        <section class="match" data-match="{{_id}}">
+          <i class="icon-detail"></i>
+          <div class="date">{{dateFormat date}} - {{timeFormat date}}</div>
+          <div class="team1">
+            <div class="flag {{machineName team1name}}"></div>
+            <div class="country">{{team1name}}</div>
+          </div>
+          <div class="team2">
+            <div class="flag {{machineName team2name}}"></div>
+            <div class="country">{{team2name}}</div>
+          </div>
+          <div class="info">
+            {{#if hasBet}}
+              {{bet1}} - {{bet2}}
+            {{else}}
+              <span class="sub">no bet yet</span>
+            {{/if}}
+          </div>
+        </section>
+        {{/each}}
+      </section>
+    </div>
+
+    <div class="page">
+      {{> Ranking}}
+    </div>
+
+  </div>
+
+</template>
