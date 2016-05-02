@@ -15,23 +15,23 @@ Router.route('/matches');
 Router.route('/standings');
 Router.route('/chat');
 Router.route('/bets');
-Router.route('/bet/:_id', {
+Router.route('/bet', {
   name: 'Bet',
-  waitOn: function() {
-    return Meteor.subscribe('matches');
-  },
   data: function() {
-    let match = Matches.findOne({_id: this.params._id});
+    const matchId = Session.get('currentBet');
+    let match = Matches.findOne({_id: matchId});
     if (match) {
       match.team1name = Teams.findOne({_id: match.team1}).name;
       match.team2name = Teams.findOne({_id: match.team2}).name;
-      const bet = Bets.findOne({match: this.params._id, userId: Meteor.userId()});
+      match.bet = Bets.findOne({match: matchId, userId: Meteor.userId()});
       return {
         match: match,
-        bet: bet
+        matches: Matches.find({
+          tournament: Session.get('tournament'),
+        }, {sort: {date: 1, team1: 1, team2: 1}}).fetch(),
       };
     }
-  },
+  }
 });
 Router.route('/ranking');
 Router.route('/settings');
