@@ -1,7 +1,8 @@
 
 // transforms name into a machine usable name
 Handlebars.registerHelper('machineName', function(name) {
-  return name.toLowerCase().replace(' ', '_');
+  if (name)
+    return name.toLowerCase().replace(' ', '_');
 });
 
 // formats a date to DD/MM/YYYY
