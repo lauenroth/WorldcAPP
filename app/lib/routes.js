@@ -23,11 +23,13 @@ Router.route('/bet', {
     if (match) {
       match.team1name = Teams.findOne({_id: match.team1}).name;
       match.team2name = Teams.findOne({_id: match.team2}).name;
-      match.bet = Bets.findOne({match: matchId, userId: Meteor.userId()});
+      const bet = Bets.findOne({match: matchId, userId: Meteor.userId()});
       return {
         match: match,
+        bet: bet,
         matches: Matches.find({
           tournament: Session.get('tournament'),
+          stage: 'group',
         }, {sort: {date: 1, team1: 1, team2: 1}}).fetch(),
       };
     }

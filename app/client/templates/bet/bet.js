@@ -1,38 +1,45 @@
-Template.Bet.setBet = function(e, target) {
+Template.Bet.setBet = function(e, team) {
   e.preventDefault();
   let chosen = $(e.currentTarget).blur().html();
+  let bet = Session.get('currentBet');
 
   if (chosen === '+') {
-    chosen = parseInt(target.html()) + 1 || 0;
+    chosen = (bet !== false ? bet[team] + 1 : 0);
   }
-  target.html(chosen);
+
+
+  if (bet === false) {
+    bet = {};
+  }
+  bet[team] = chosen;
+  Session.set('currentBet', bet);
 };
 
 Template.Bet.saveBet = function() {
   const match = Session.get('currentMatch');
-  const score1 = $('.bet-team1').html();
-  const score2 = $('.bet-team2').html();
-  if (score1.length && score2.length) {
+  const currentBet = Session.get('currentBet');
+  if (currentBet.score1 !== undefined && currentBet.score2 !== undefined) {
     const bet = Bets.findOne({match: match._id});
     if (!bet) {
       Bets.insert({
         match: match._id,
-        score1: score1,
-        score2: score2,
+        score1: currentBet.score1,
+        score2: currentBet.score2,
         userId: Meteor.userId(),
       });
     } else {
-      Bets.update({_id: bet._id}, {$set: {score1: score1, score2: score2}});
+      Bets.update({_id: bet._id}, {$set: {score1: currentBet.score1, score2: currentBet.score2}});
     }
   }
 };
 
 Template.Bet.setMatch = function(data) {
-  data.match = data.matches[data.currentMatchIndex];
-  data.match.team1name = Teams.findOne({_id: data.match.team1}).name;
-  data.match.team2name = Teams.findOne({_id: data.match.team2}).name;
-  data.match.bet = Bets.findOne({match: data.match._id, userId: Meteor.userId()});
-  Session.set('currentMatch', data.match);
+  let match = Session.get('matches')[Session.get('currentMatchIndex')];
+  match.team1name = Teams.findOne({_id: match.team1}).name;
+  match.team2name = Teams.findOne({_id: match.team2}).name;
+  const bet = Bets.findOne({match: match._id, userId: Meteor.userId()});
+  Session.set('currentMatch', match);
+  Session.set('currentBet', bet ? bet : false);
 };
 
 /*****************************************************************************/
@@ -41,19 +48,19 @@ Template.Bet.setMatch = function(data) {
 Template.Bet.events({
 
   'click .set-bet1 a': function(e) {
-    Template.Bet.setBet(e, $('.bet-team1'));
+    Template.Bet.setBet(e, 'score1');
   },
 
   'click .set-bet2 a': function(e) {
-    Template.Bet.setBet(e, $('.bet-team2'));
+    Template.Bet.setBet(e, 'score2');
   },
 
   'click .prev': function(e) {
     e.preventDefault();
     Template.Bet.saveBet();
-
-    if (this.currentMatchIndex > 0) {
-      this.currentMatchIndex--;
+    const currentMatchIndex = Session.get('currentMatchIndex');
+    if (currentMatchIndex > 0) {
+      Session.set('currentMatchIndex', currentMatchIndex - 1);
       Template.Bet.setMatch(this);
     }
   },
@@ -61,10 +68,12 @@ Template.Bet.events({
   'click .next': function(e) {
     e.preventDefault();
     Template.Bet.saveBet();
-
-    if (this.matches.length > this.currentMatchIndex + 2) {
-      this.currentMatchIndex++;
+    const currentMatchIndex = Session.get('currentMatchIndex');
+    if (Session.get('matches').length > currentMatchIndex + 1) {
+      Session.set('currentMatchIndex', currentMatchIndex + 1);
       Template.Bet.setMatch(this);
+    } else {
+      Router.go('/bets');
     }
   },
 });
@@ -84,15 +93,19 @@ Template.Bet.helpers({
     return Session.get('currentMatch');
   },
 
+  currentBet: function() {
+    return Session.get('currentBet');
+  },
+
   hasPrevMatch: function() {
-    Session.get('currentMatch');
-    return this.currentMatchIndex > 0;
+    return Session.get('currentMatchIndex') > 0;
   },
 
   hasNextMatch: function() {
-    Session.get('currentMatch');
-    console.log(this.currentMatchIndex, this.matches.length);
-    return this.currentMatchIndex < this.matches.length - 2;
+    const matches = Session.get('matches');
+    if (matches) {
+      return Session.get('currentMatchIndex') < matches.length - 1;
+    }
   },
 
 });
@@ -110,11 +123,13 @@ Template.Bet.onRendered(function () {
     Router.go('bets');
   } else {
     Session.set('currentMatch', this.data.match);
+    Session.set('currentBet', this.data.bet ? this.data.bet : false);
     this.data.matches.forEach((matchTmp, index) => {
       if (matchTmp._id === this.data.match._id) {
-        this.data.currentMatchIndex = index;
+        Session.set('currentMatchIndex', index);
       }
     });
+    Session.set('matches', this.data.matches);
   }
 });
 

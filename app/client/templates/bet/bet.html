@@ -23,8 +23,8 @@
     </div>
 
     <div class="betting">
-      <div class="bet-team1">{{#if currentMatch.bet}}{{currentMatch.bet.score1}}{{/if}}</div>
-      <div class="bet-team2">{{#if currentMatch.bet}}{{currentMatch.bet.score2}}{{/if}}</div>
+      <div class="bet-team1">{{currentBet.score1}}</div>
+      <div class="bet-team2">{{currentBet.score2}}</div>
     </div>
 
     <div class="set-bet1">
@@ -44,9 +44,17 @@
       <a href="#+">+</a>
     </div>
 
-    <nav style="clear: both; margin: 0 auto; padding: 40px 0 0; text-align: center;">
-      {{#if hasPrevMatch}}<a href="#prev" class="btn prev" style="float: left; margin-left: 20px; width: 115px;">Previous</a>{{/if}}
-      {{#if hasNextMatch}}<a href="#next" class="btn next" style="float: right; margin-right: 20px; width: 115px;">Next</a>{{/if}}
+    <nav>
+      {{#if hasPrevMatch}}
+        <a href="#prev" class="btn prev">Previous</a>
+      {{/if}}
+      <a href="#next" class="btn next">
+      {{#if hasNextMatch}}
+        Next
+      {{else}}
+        Done
+      {{/if}}
+      </a>
     </nav>
 
   </section>
