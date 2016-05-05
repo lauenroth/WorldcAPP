@@ -2,8 +2,11 @@
 
   {{> Stages}}
 
+<div class="pages-wrapper">
+  <h3 class="fixed">{{currentDay}}</h3>
+<div class="page first-page">
   <section class="main matches">
-    {{#each groupMatches}}
+    {{#each groupedMatches}}
       <h3>{{day}}</h3>
       <div class="day">
         {{#each matches}}
@@ -28,5 +31,35 @@
       </div>
     {{/each}}
   </section>
+</div>
 
+  <div class="page second-page">
+    <section class="main matches">
+      {{#each groupedMatches 'knock-out'}}
+        <h3>{{day}}</h3>
+        <div class="day">
+          {{#each matches}}
+          <section class="match">
+            <div class="group">{{group}}</div>
+            <div class="stadium">{{stadium}}</div>
+            <div class="team1">
+              <div class="flag {{machineName team1name}}"></div>
+              <div class="country">{{team1name}}</div>
+            </div>
+            <div class="team2">
+              <div class="flag {{machineName team2name}}"></div>
+              <div class="country">{{team2name}}</div>
+            </div>
+            <div class="info">
+              {{timeFormat date}}
+              <div class="sub">local time</div>
+            </div>
+            <div class="clear"></div>
+          </section>
+          {{/each}}
+        </div>
+      {{/each}}
+    </section>
+  </div>
+</div>
 </template>

@@ -3,13 +3,43 @@
 /*****************************************************************************/
 .matches {
   padding-top: 40px;
+  width: 100%;
+}
+.match {
+  clear: both;
+  border-bottom: 1px solid #e3ede1;
 
-  .match {
-    clear: both;
-    border-bottom: 1px solid #e3ede1;
+  &:nth-child(even) {
+    background-color: #f8faf7;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.pages-wrapper {
+  height: 100%;
+  // overflow: hidden;
+  // position: absolute;
+  // width: 100%;
+
+  .page {
+    // border-right: 1px solid #e3ede1;
+    // float: left;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    // position: relative;
+    // width: 25%;
 
     &:last-child {
-      border-bottom: none;
+      border-right: none;
+    }
+
+    section.main {
+      margin-bottom: 56px;
+      position: relative;
     }
   }
 }
@@ -37,7 +67,6 @@
 
   .flag {
     left: auto;
-    right: 10px;
   }
 }
 
@@ -54,14 +83,21 @@
 }
 
 .group,
-.stadium {
+.stadium,
+.date {
   color: #5E9356;
   font-size: 10px;
-  float: left;
   margin: 5px 5px 0;
+}
+.group {
+  clear: left;
+  float: left;
 }
 .stadium {
   float: right;
+}
+.date {
+  text-align: center;
 }
 
 .flag {
@@ -73,77 +109,89 @@
   margin: 0 auto 10px;
   width: 50px;
 
+  &.tbd {
+    background-color: #e3ede1;
+    color: #5E9356;
+    // color: #fff;
+    position: relative;
+
+    &:before {
+      content: '?';
+      position: relative;
+      top: 11px;
+    }
+  }
 
   &.albania {
-    background-image: url(/images/flag-icons/flags/1x1/al.svg);
+    background-image: url(/images/flags/al.svg);
   }
   &.austria {
-    background-image: url(/images/flag-icons/flags/1x1/at.svg);
+    background-image: url(/images/flags/at.svg);
   }
   &.belgium {
-    background-image: url(/images/flag-icons/flags/1x1/be.svg);
+    background-image: url(/images/flags/be.svg);
   }
   &.croatia {
-    background-image: url(/images/flag-icons/flags/1x1/hr.svg);
+    background-image: url(/images/flags/hr.svg);
   }
   &.czech_republic {
-    background-image: url(/images/flag-icons/flags/1x1/cz.svg);
+    background-image: url(/images/flags/cz.svg);
   }
   &.england {
-    background-image: url(/images/flag-icons/flags/1x1/gb-eng.svg);
+    background-image: url(/images/flags/gb-eng.svg);
   }
   &.france {
-    background-image: url(/images/flag-icons/flags/1x1/fr.svg);
+    background-image: url(/images/flags/fr.svg);
   }
   &.germany {
-    background-image: url(/images/flag-icons/flags/1x1/de.svg);
+    background-image: url(/images/flags/de.svg);
   }
   &.hungary {
-    background-image: url(/images/flag-icons/flags/1x1/hu.svg);
+    background-image: url(/images/flags/hu.svg);
   }
   &.iceland {
-    background-image: url(/images/flag-icons/flags/1x1/is.svg);
+    background-image: url(/images/flags/is.svg);
   }
   &.ireland {
-    background-image: url(/images/flag-icons/flags/1x1/ie.svg);
+    background-image: url(/images/flags/ie.svg);
   }
   &.italy {
-    background-image: url(/images/flag-icons/flags/1x1/it.svg);
+    background-image: url(/images/flags/it.svg);
   }
   &.northern_ireland {
-    background-image: url(/images/flags/Northern_Ireland.svg);
+    background-image: url(/images/flags/gb-northern-ireland.svg);
   }
   &.poland {
-    background-image: url(/images/flag-icons/flags/1x1/pl.svg);
+    background-image: url(/images/flags/pl.svg);
   }
   &.portugal {
-    background-image: url(/images/flag-icons/flags/1x1/pt.svg);
+    background-image: url(/images/flags/pt.svg);
   }
   &.romania {
-    background-image: url(/images/flag-icons/flags/1x1/ro.svg);
+    background-image: url(/images/flags/ro.svg);
   }
   &.russia {
-    background-image: url(/images/flag-icons/flags/1x1/ru.svg);
+    background-image: url(/images/flags/ru.svg);
   }
   &.slovakia {
-    background-image: url(/images/flag-icons/flags/1x1/sk.svg);
+    background-image: url(/images/flags/sk.svg);
   }
   &.spain {
-    background-image: url(/images/flag-icons/flags/1x1/es.svg);
+    background-image: url(/images/flags/es.svg);
   }
   &.sweden {
-    background-image: url(/images/flag-icons/flags/1x1/se.svg);
+    background-image: url(/images/flags/se.svg);
   }
   &.switzerland {
-    background-image: url(/images/flags/Switzerland.svg);
+    background-image: url(/images/flags/ch.svg);
   }
   &.turkey {
-    background-image: url(/images/flag-icons/flags/1x1/tr.svg);
+    background-image: url(/images/flags/tr.svg);
   }
   &.ukraine {
-    background-image: url(/images/flag-icons/flags/1x1/ua.svg);
+    background-image: url(/images/flags/ua.svg);
   }
   &.wales {
-    background-image: url(/images/flag-icons/flags/1x1/gb-wls.svg);
+    background-image: url(/images/flags/gb-wls.svg);
   }
 }
