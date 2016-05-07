@@ -5,6 +5,9 @@ Template.Chat.addChat = function(text, me) {
     '<div>' + text + '</div>' +
   '</div>');
   $('.conversation').append(newText);
+  $('.chat').animate({
+    scrollTop: document.body.scrollHeight
+  }, 400);
 };
 
 /*****************************************************************************/
