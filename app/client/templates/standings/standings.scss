@@ -5,7 +5,7 @@
   padding-top: 40px;
 
   table {
-    margin: 20px 0;
+    margin: 0px 0 20px;
     width: 100%;
   }
 
@@ -40,5 +40,79 @@
     height: 20px;
     margin: 0 10px 0 0;
     width: 20px;
+  }
+
+  @media (min-width: 500px) {
+    th span {
+      display: inline;
+    }
+  }
+
+  &.knock-out {
+    .phase {
+      padding: 5% 0 0 5%;
+    }
+    .match {
+      background-color: #f8faf7;
+      border: 1px solid #c5dac1;
+      border-radius: 6px;
+      clear: none;
+      float: left;
+      margin: 0% 5% 5% 0%;
+      position: relative;
+      width: 45%;
+
+      .team1, .team2 {
+        font-size: 14px;
+        overflow: hidden;
+        padding: 5px;
+        width: 50%;
+
+        &.lost {
+          opacity: .5;
+
+          .flag {
+            opacity: .5;
+          }
+        }
+      }
+      .team1 {
+        text-align: left;
+      }
+      .team2 {
+        text-align: right;
+        .flag {
+          float: right;
+        }
+      }
+      .flag {
+        margin: 2px 2px 6px;
+      }
+      .name {
+        clear: both;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .score {
+        font-size: 18px;
+        left: 0;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        top: 5px;
+      }
+    }
+    .final .match {
+      width: 95%;
+
+      .flag {
+        height: 40px;
+        width: 40px;
+      }
+      .score {
+        font-size: 28px;
+      }
+    }
   }
 }
