@@ -1,7 +1,7 @@
 Meteor.startup(() => {
 
   if (!Tournaments.findOne({_id: 'euro2016'})) {
-
+    Tournaments.remove({_id: 'euro2016'});
     Tournaments.insert({
       _id: 'euro2016',
       name: 'UEFA Euro 2016',
@@ -314,7 +314,7 @@ Meteor.startup(() => {
       Matches.insert(match);
     });
 
-    const knockOutMatches = [{
+    let knockOutMatches = [{
       team1: 'tbd',
       team2: 'tbd',
       date: Date.UTC(2016,5,25,15,00),
@@ -356,7 +356,63 @@ Meteor.startup(() => {
       stadium: 'Stade de Nice, Nice'
     }];
     knockOutMatches.forEach(match => {
-      match.stage = 'knock-out';
+      match.stage = 'roundOf16';
+      match.tournament = 'euro2016';
+      Matches.insert(match);
+    });
+
+    knockOutMatches = [{
+      team1: 'tbd',
+      team2: 'tbd',
+      date: Date.UTC(2016,5,30,21,00),
+      stadium: 'Stade Vélodrome, Marseille'
+    },{
+      team1: 'tbd',
+      team2: 'tbd',
+      date: Date.UTC(2016,6,1,21,00),
+      stadium: 'Parc Pierre Mauroy, Lille Métropole'
+    },{
+      team1: 'tbd',
+      team2: 'tbd',
+      date: Date.UTC(2016,6,2,21,00),
+      stadium: 'Stade de Bordeaux, Bordeaux'
+    },{
+      team1: 'tbd',
+      team2: 'tbd',
+      date: Date.UTC(2016,6,3,21,00),
+      stadium: 'Stade de France, Saint-Denis'
+    }];
+    knockOutMatches.forEach(match => {
+      match.stage = 'quarterFinals';
+      match.tournament = 'euro2016';
+      Matches.insert(match);
+    });
+
+    knockOutMatches = [{
+      team1: 'tbd',
+      team2: 'tbd',
+      date: Date.UTC(2016,6,6,21,00),
+      stadium: 'Stade de Lyon, Lyon'
+    },{
+      team1: 'tbd',
+      team2: 'tbd',
+      date: Date.UTC(2016,6,7,21,00),
+      stadium: 'Parc Vélodrome, Marseille'
+    }];
+    knockOutMatches.forEach(match => {
+      match.stage = 'semiFinals';
+      match.tournament = 'euro2016';
+      Matches.insert(match);
+    });
+
+    knockOutMatches = [{
+      team1: 'tbd',
+      team2: 'tbd',
+      date: Date.UTC(2016,6,10,21,00),
+      stadium: 'Stade de France, Saint-Denis'
+    }];
+    knockOutMatches.forEach(match => {
+      match.stage = 'final';
       match.tournament = 'euro2016';
       Matches.insert(match);
     });
