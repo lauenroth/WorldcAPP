@@ -1,0 +1,38 @@
+/*****************************************************************************/
+/* Settings: Style */
+/*****************************************************************************/
+.settings {
+
+  section {
+    padding: 10px;
+  }
+
+  label {
+    margin: 0;
+    padding: 0;
+    display: block;
+  }
+
+  input {
+    border: none;
+    border-bottom: 1px solid #c5dac1;
+    margin-bottom: 10px;
+    padding: 10px 0;
+    width: 100%;
+  }
+
+  .team1 .name {
+    font-size: 14px;
+  }
+
+  .info {
+    font-size: inherit;
+    height: auto;
+    padding: 13px 0 0 40%;
+    text-align: left;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+  }
+}
