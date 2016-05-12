@@ -25,12 +25,6 @@
       "src": "fontawesome"
     },
     {
-      "uid": "f279f25007794fa6837ff78fe94b216e",
-      "css": "money",
-      "code": 59395,
-      "src": "fontawesome"
-    },
-    {
       "uid": "cf62866c0cfe3dd14455b381c724f8e1",
       "css": "football",
       "code": 59396,
@@ -53,6 +47,12 @@
       "css": "play",
       "code": 59399,
       "src": "entypo"
+    },
+    {
+      "uid": "e36d581e4f2844db345bddc205d15dda",
+      "css": "group",
+      "code": 59400,
+      "src": "elusive"
     }
   ]
 }

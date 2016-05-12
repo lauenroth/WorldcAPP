@@ -2,8 +2,8 @@
 .icon-calendar:before { content: '\e800'; } /* '' */
 .icon-trophy:before { content: '\e801'; } /* '' */
 .icon-chat:before { content: '\e802'; } /* '' */
-.icon-money:before { content: '\e803'; } /* '' */
 .icon-football:before { content: '\e804'; } /* '' */
 .icon-user:before { content: '\e805'; } /* '' */
 .icon-detail:before { content: '\e806'; } /* '' */
 .icon-play:before { content: '\e807'; } /* '' */
+.icon-group:before { content: '\e808'; } /* '' */
