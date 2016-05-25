@@ -27,32 +27,50 @@
     {
       "uid": "cf62866c0cfe3dd14455b381c724f8e1",
       "css": "football",
-      "code": 59396,
+      "code": 59395,
       "src": "fontawesome"
     },
     {
       "uid": "fd3128bf109153952b1b775ea574504b",
       "css": "user",
-      "code": 59397,
+      "code": 59396,
       "src": "websymbols"
     },
     {
       "uid": "7bf14281af5633a597f85b061ef1cfb9",
       "css": "detail",
-      "code": 59398,
+      "code": 59397,
       "src": "fontawesome"
     },
     {
       "uid": "cb13afd4722a849d48056540bb74c47e",
       "css": "play",
-      "code": 59399,
+      "code": 59398,
       "src": "entypo"
     },
     {
       "uid": "e36d581e4f2844db345bddc205d15dda",
       "css": "group",
+      "code": 59399,
+      "src": "elusive"
+    },
+    {
+      "uid": "62b0580ee8edc3a3edfbf68a47c852d5",
+      "css": "edit",
       "code": 59400,
       "src": "elusive"
+    },
+    {
+      "uid": "c1f1975c885aa9f3dad7810c53b82074",
+      "css": "lock",
+      "code": 59401,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "ccc2329632396dc096bb638d4b46fb98",
+      "css": "mail",
+      "code": 59402,
+      "src": "fontawesome"
     }
   ]
 }

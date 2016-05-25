@@ -2,8 +2,11 @@
 .icon-calendar:before { content: '\e800'; } /* '' */
 .icon-trophy:before { content: '\e801'; } /* '' */
 .icon-chat:before { content: '\e802'; } /* '' */
-.icon-football:before { content: '\e804'; } /* '' */
-.icon-user:before { content: '\e805'; } /* '' */
-.icon-detail:before { content: '\e806'; } /* '' */
-.icon-play:before { content: '\e807'; } /* '' */
-.icon-group:before { content: '\e808'; } /* '' */
+.icon-football:before { content: '\e803'; } /* '' */
+.icon-user:before { content: '\e804'; } /* '' */
+.icon-detail:before { content: '\e805'; } /* '' */
+.icon-play:before { content: '\e806'; } /* '' */
+.icon-group:before { content: '\e807'; } /* '' */
+.icon-edit:before { content: '\e808'; } /* '' */
+.icon-lock:before { content: '\e809'; } /* '' */
+.icon-mail:before { content: '\e80a'; } /* '' */
