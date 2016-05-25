@@ -100,6 +100,11 @@ button,
 	border-radius: 4px;
 	color: #fff;
 	padding: 6px 12px;
+	transition: .2s;
+}
+button[disabled] {
+	background-color: #eee;
+	color: #999;
 }
 
 
@@ -127,6 +132,16 @@ button,
 		}
   }
 
+	&.alt {
+		background-color: #f8faf7;
+	  color: #5E9356;
+	  padding: 0;
+
+	  &.show {
+	    opacity: 1;
+	  }
+	}
+
   .fixed {
     top: 0;
     width: 100%;
@@ -148,4 +163,44 @@ button,
 			left: -100px;
 		}
   }
+}
+
+
+input {
+	background-color: #fff;
+	border: 1px solid #c5dac1;
+	border-radius: 4px;
+	color: #5E9356;
+	height: 40px;
+	margin: 0 0 10px;
+	opacity: 1;
+	padding: 10px;
+	transition: .3s;
+
+	&.user-input {
+		border: 1px solid #c5dac1;
+		width: 100%;
+	}
+}
+
+
+.icon-detail.back {
+	color: #5E9356;
+	font-size: 26px;
+	position: absolute;
+	top: 0;
+	transform: rotate(180deg);
+	z-index: 10;
+}
+
+.header-edit {
+	color: #5E9356;
+	font-size: 16px;
+	line-height: 37px;
+	position: absolute;
+	right: 10px;
+	text-align: center;
+	top: 0;
+	width: 37px;
+	z-index: 10;
 }
