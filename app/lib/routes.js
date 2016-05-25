@@ -13,7 +13,38 @@ Router.route('/', function() {
 Router.route('/matches');
 
 Router.route('/standings');
-Router.route('/chat');
+
+Router.route('/communities');
+Router.route('/communities/:id', {
+  name: 'Community',
+  data: function() {
+    if (this.params.id === 'facebook') {
+      // let friends = [];
+      // if (Meteor.user()) {
+      //   const fbUserData = Meteor.user().services.facebook;
+      //   $.get('https://graph.facebook.com/v2.6/' + fbUserData.id + '/friends/?access_token=' + fbUserData.accessToken + '&fields=name,id,picture', function(result) {
+      //     console.log(result);
+      //     friends = result.data;
+      //   });
+      // }
+      return {
+        _id: 'facebook',
+        name: 'Facebook friends',
+        // friends: friends,
+      };
+    }
+    return Communities.findOne({_id: this.params.id});
+  }
+});
+
+// Router.route('/chat-groups');
+// Router.route('/chat');
+// Router.route('/chat/:id', {
+//   name: 'Chat',
+//   data: function() {
+//     return ChatRooms.findOne({_id: this.params.id});
+//   },
+// });
 Router.route('/bets');
 Router.route('/bet', {
   name: 'Bet',
