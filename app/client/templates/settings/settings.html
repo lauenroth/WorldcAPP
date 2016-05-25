@@ -1,16 +1,23 @@
 <template name="Settings">
 
+  {{> Login}}
+
   <section class="main settings">
     <h3>Account</h3>
     <section>
       <form>
-        <label for="name">Name</label>
+
+        {{#if user.picture}}
+        <img src="{{user.picture}}" class="picture">
+        {{/if}}
+
+        <label for="name">Your name</label>
         <input type="text" id="name" placeholder="Your name" value="{{user.name}}">
 
-        <label for="email">Email address</label>
-        <input type="email" id="email" placeholder="Your email address" value="{{user.email}}">
+        <!-- <label for="email">Email address</label>
+        <input type="email" id="email" placeholder="Your email address" value="{{user.email}}"> -->
 
-        <label for="team">Supported Team</label>
+        <label for="team">Your favorite team</label>
         <input type="hidden" id="supported-team" value="{{user.supportedTeam}}">
         <div class="team1">
           <div class="flag {{machineName user.supportedTeamFlag}} change-team"></div>
@@ -20,17 +27,11 @@
           Show which team you're supporting!
         </div>
 
-        <button type="submit">Save changes</button>
+        <button type="submit" disabled>Save changes</button>
       </form>
+      <hr>
+      <button class="signout">Sign out</button>
     </section>
-    <!-- <section>
-      <p>Connect with ...</p>
-      <ul>
-        <li class="btn">Facebook</li>
-        <li class="btn">Twitter</li>
-        <li class="btn">Google</li>
-      </ul>
-    </section> -->
 
     <h3>About</h3>
     <section>

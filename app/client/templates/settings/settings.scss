@@ -21,6 +21,16 @@
     width: 100%;
   }
 
+  .picture {
+    border-radius: 100%;
+    box-shadow: 0 0 10px #999;
+    height: 50px;
+    position: absolute;
+    right: 25px;
+    top: 47px;
+    width: 50px;
+  }
+
   .team1 .name {
     font-size: 14px;
   }
