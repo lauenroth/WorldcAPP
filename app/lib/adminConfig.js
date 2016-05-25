@@ -70,6 +70,19 @@ AdminConfig = {
       ]
     },
 
+    Communities: {
+      tableColumns: [
+        {
+          label: 'Name',
+          name: 'name',
+        }
+      ]
+    },
+
+    Chat: {
+
+    },
+
   },
 
   autoForm: {
