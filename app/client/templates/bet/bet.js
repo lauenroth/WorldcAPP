@@ -34,12 +34,21 @@ Template.Bet.saveBet = function() {
 };
 
 Template.Bet.setMatch = function(data) {
+  var $team1 = $('.team1');
+  var $team2 = $('.team2');
   let match = Session.get('matches')[Session.get('currentMatchIndex')];
   match.team1name = Teams.findOne({_id: match.team1}).name;
   match.team2name = Teams.findOne({_id: match.team2}).name;
   const bet = Bets.findOne({match: match._id, userId: Meteor.userId()});
-  Session.set('currentMatch', match);
   Session.set('currentBet', bet ? bet : false);
+
+  $team1.addClass('change');
+  $team2.addClass('change');
+  setTimeout(() => {
+    Session.set('currentMatch', match);
+    $team1.removeClass('change');
+    $team2.removeClass('change');
+  }, 300);
 };
 
 /*****************************************************************************/
