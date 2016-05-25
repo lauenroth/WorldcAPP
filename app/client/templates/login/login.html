@@ -1,0 +1,46 @@
+<template name="Login">
+
+  {{#unless currentUser }}
+
+  <section class="login sign-in">
+    <h3>Login required</h3>
+
+    <div class="options">
+      <button class="left sign-in">Sign in</button>
+      <button class="right sign-up">Sign up</button>
+      <div class="dot"></div>
+    </div>
+
+    <form>
+
+      <div class="input name">
+        <i class="icon-user"></i>
+        <input type="text" id="login-name" placeholder="Your name">
+      </div>
+      <div class="input email">
+        <i class="icon-mail"></i>
+        <input type="email" id="login-email" placeholder="Your email address" required>
+      </div>
+      <div class="input password">
+        <i class="icon-lock"></i>
+        <input type="password" id="login-password" placeholder="Your password" required>
+      </div>
+      <button type="submit">Sign in</button>
+
+      <p class="forgot-password">Forgot password?</p>
+
+      <div class="or"><span>OR</span></div>
+
+      <div class="buttons">
+        <button class="facebook">Sign in via Facebook</button>
+        <button class="google">Sign in via Google</button>
+      </div>
+    </form>
+
+    {{> loginButtons align="right"}}
+
+  </section>
+
+  {{/unless}}
+
+</template>
