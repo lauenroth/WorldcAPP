@@ -1,0 +1,24 @@
+<template name="CommunityResultItem">
+
+  <li>
+    {{name}}
+    {{#if isMember}}
+    <button disabled>Already member</button>
+    {{else}}
+      {{#if isPublic}}
+      <button>Join</button>
+      {{else}}
+        {{#if isPending}}
+        <button disabled>Pending request</button>
+        {{else}}
+          {{#if isRejected}}
+          <button disabled>Rejected</button>
+          {{else}}
+          <button>Request invite</button>
+          {{/if}}
+        {{/if}}
+      {{/if}}
+    {{/if}}
+  </li>
+
+</template>

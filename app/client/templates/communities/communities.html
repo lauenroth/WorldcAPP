@@ -1,0 +1,62 @@
+<template name="Communities">
+
+  {{> Login}}
+
+  <section class="main communities">
+    <h3>My Communities</h3>
+    <ul>
+      {{#if hasFacebookConnection}}
+      <li class="facebook">
+        <i class="icon-group logo"></i>
+        <div class="name">Facebook friends</div>
+      </li>
+      {{/if}}
+      {{#if communities.length}}
+      {{#each communities}}
+        {{> CommunityListItem this}}
+      {{/each}}
+      {{else}}
+        <p class="no-result">You haven't joined a community yet.</p>
+      {{/if}}
+    </ul>
+
+    <div class="buttons">
+      <button class="search">Search</button>
+      <button class="add">Add</button>
+    </div>
+  </section>
+
+  <section class="modal alt search-community">
+    <i class="icon-detail back"></i>
+    <h3>Search community</h3>
+    <input type="search" id="search" autocomplete="off" placeholder="Start typing here...">
+
+    {{#if hasSearched}}
+
+      {{#if searchResult.length}}
+      <ul class="search-result">
+        {{#each searchResult}}
+          {{> CommunityResultItem this}}
+        {{/each}}
+      </ul>
+      {{else}}
+      <p class="no-result">No community is matching<br> "{{searchTerm}}"</p>
+      {{/if}}
+    {{else}}
+      <p class="no-result">Please enter a search term</p>
+    {{/if}}
+  </section>
+
+  <section class="modal alt add-community">
+    <i class="icon-detail back"></i>
+    <h3>Add community</h3>
+    <form>
+      <label for="community-name">Name</label>
+      <input type="text" id="community-name" class="user-input" required>
+
+      <label><input type="checkbox" id="community-is-public"> is public</label>
+      <button type="submit">Add community</button>
+    </form>
+  </section>
+
+</template>

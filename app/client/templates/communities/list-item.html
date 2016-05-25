@@ -1,0 +1,14 @@
+<template name="CommunityListItem">
+
+  <li>
+    <i class="icon-group logo">
+      {{#if isAdmin}}
+      <sup>Admin</sup>
+      {{/if}}
+    </i>
+    <div class="name">{{name}}</div>
+    <i class="icon-group right"><sup>{{members.length}}</sup></i>
+    <i class="icon-chat right"><sup>?</sup></i>
+  </li>
+
+</template>

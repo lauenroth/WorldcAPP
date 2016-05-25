@@ -1,0 +1,46 @@
+<template name="Community">
+
+  {{#if isAdmin}}
+  <i class="icon-edit header-edit"></i>
+  {{/if}}
+  <i class="icon-detail back"></i>
+  <h3>{{name}}</h3>
+  <section class="main community ranking">
+    <table>
+      <tbody>
+        {{#each members}}
+        <tr>
+          <td class="rank rank-{{rank}}"><span>{{rank}}</span><div class="icon-trophy"></div></td>
+          <td class="name"><img src="{{picture.data.url}}" alt=""> {{profile.name}}</td>
+          <td class="points">{{profile.points}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+
+    {{#if pendingRequests}}
+    <h3>Pending requests</h3>
+    <ul class="pending">
+      {{#each pendingRequests}}
+      <li>
+        {{username}}
+        <button class="reject">×</button>
+        <button class="add">✔</button>
+      </li>
+      {{/each}}
+    </ul>
+    {{/if}}
+  </section>
+
+  <section class="modal alt edit-community">
+    <i class="icon-detail back"></i>
+    <h3>Edit community</h3>
+    <form>
+      <label for="community-name">Name</label>
+      <input type="text" id="community-name" class="user-input" value="{{name}}" required>
+
+      <label><input type="checkbox" id="community-is-public"> is public</label>
+      <button type="submit" disabled>Save changes</button>
+    </form>
+  </section>
+</template>

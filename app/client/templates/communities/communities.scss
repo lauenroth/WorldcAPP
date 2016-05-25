@@ -1,0 +1,170 @@
+/*****************************************************************************/
+/* Communities: Style */
+/*****************************************************************************/
+.communities {
+  ul {
+    margin: 0;
+    max-height: calc(100% - 90px);
+    overflow-y: auto;
+    padding: 0;
+  }
+  li {
+    border-bottom: 1px solid #e3ede1;
+    border-right: 1px solid #e3ede1;
+    height: 70px;
+    line-height: 70px;
+    list-style: none;
+    padding: 0 10px 0 10px;
+    position: relative;
+
+    &:nth-child(even) {
+      background-color: #f8faf7;
+    }
+  }
+  .name {
+    float: left;
+  }
+
+  .logo {
+    background-color: #e3ede1;
+    border-radius: 100%;
+    box-shadow: 0 0 3px #5E9356;
+    color: #5E9356;
+    display: block;
+    float: left;
+    font-size: 26px;
+    line-height: 45px;
+    margin: 12px 12px 0 2px;
+    text-align: center;
+    width: 45px;
+
+    sup {
+      bottom: 6px;
+      font-size: 10px;
+      left: 25px;
+      line-height: 15px;
+      position: absolute;
+      top: auto;
+    }
+  }
+
+  .right {
+    color: #5E9356;
+    float: right;
+    font-size: 24px;
+    padding: 0 10px;
+  }
+
+  sup {
+    background-color: #e3ede1;
+    border: 1px solid #c5dac1;
+    border-radius: 12px;
+    display: inline-block;
+    font-size: 12px;
+    font-style: normal;
+    line-height: 19px;;
+    margin-left: -13px;
+    margin-right: -7px;
+    padding: 0 6px;
+    text-align: center;
+    top: -17px;
+  }
+
+  .buttons {
+    border-top: 1px solid #e3ede1;
+    box-shadow: 0 0 30px #fff;
+    bottom: 56px;
+    left: 0;
+    padding: 10px;
+    position: fixed;
+    right: 0;
+
+    button {
+      background-color: #e3ede1;
+      color: #5E9356;
+      width: 49%;
+    }
+    .add {
+      float: right;
+    }
+  }
+}
+
+.modal.search-community {
+
+  h3 {
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 2;
+  }
+  .icon-detail {
+    position: fixed;
+  }
+
+  input {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    margin: 0;
+    padding-right: 75px;
+    position: fixed;
+    top: 37px;
+    width: 100%;
+    z-index: 2;
+  }
+
+  .search-result {
+    margin-top: 92px;
+    padding: 0 10px 10px;
+
+    li {
+      background-color: #e3ede1;
+      background-color: #fff;
+      border: 1px solid #c5dac1;
+      border-radius: 4px;
+      height: 42px;
+      list-style: none;
+      margin-top: 20px;
+      overflow: hidden;
+      padding: 10px 135px 10px 10px;
+      position: relative;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    button {
+      position: absolute;
+      right: 4px;
+      top: 4px;
+      width: 130px;
+    }
+  }
+}
+
+.no-result {
+  font-size: 22px;
+  margin-top: 50%;
+  padding: 10px;
+  text-align: center;
+}
+
+.modal.add-community {
+
+  form {
+    padding: 10px;
+  }
+
+  input[type=checkbox] {
+    float: left;
+    height: auto;
+    margin-right: 5px;
+  }
+
+  button {
+    padding: 10px;
+    width: 100%;
+  }
+
+}
