@@ -52,10 +52,9 @@ Template.Bets.onCreated(function () {
 Template.Bets.onRendered(function () {
   Session.set('menuItem', 'bet');
 
-  $('.pages-wrapper').dragend({
-    pageClass: 'page',
-  });
+  $('.pages-wrapper').pageSwiper();
 });
 
 Template.Bets.onDestroyed(function () {
+  $('.page-switcher').remove();
 });

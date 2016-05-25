@@ -1,15 +1,10 @@
 <template name="Bets">
 
-  <nav class="sub two">
-    <ul>
-      <li class="active"><a href="/bets">Your bets</a></li>
-      <li><a href="/ranking">Ranking</a></li>
-    </ul>
-  </nav>
+  {{> Login}}
 
   <div class="pages-wrapper">
 
-    <div class="page">
+    <div class="page" data-title="Your bets">
       <section class="main bets">
         <h3 class="fixed">Group stage</h3>
         <h3>Group stage</h3>
@@ -37,7 +32,7 @@
       </section>
     </div>
 
-    <div class="page">
+    <div class="page" data-title="Ranking">
       {{> Ranking}}
     </div>
 
