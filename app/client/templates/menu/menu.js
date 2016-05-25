@@ -2,6 +2,12 @@
 /* Menu: Event Handlers */
 /*****************************************************************************/
 Template.Menu.events({
+
+  'click a': function(e) {
+    $('nav.main a').removeClass('active');
+    $(e.currentTarget).addClass('active');
+  },
+
 });
 
 /*****************************************************************************/
