@@ -11,7 +11,14 @@
         {{#each members}}
         <tr>
           <td class="rank rank-{{rank}}"><span>{{rank}}</span><div class="icon-trophy"></div></td>
-          <td class="name"><img src="{{picture.data.url}}" alt=""> {{profile.name}}</td>
+          <td class="name">
+            {{{picture}}}
+            {{#if isCurrent}}
+            <strong>{{profile.name}}</strong>
+            {{else}}
+            {{profile.name}}
+            {{/if}}
+          </td>
           <td class="points">{{profile.points}}</td>
         </tr>
         {{/each}}

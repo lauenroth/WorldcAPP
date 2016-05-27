@@ -64,12 +64,20 @@
       font-weight: bold;
       width: 80px;
     }
-    img {
+    img,
+    .icon-user {
       border-radius: 100%;
       box-shadow: 0 0 10px #999;
       height: 35px;
       margin: 0 10px 0 5px;
       width: 35px;
+    }
+    .icon-user {
+      color: #5E9356;
+      display: inline-block;
+      font-size: 24px;
+      line-height: 35px;
+      text-align: center;
     }
   }
 

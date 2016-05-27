@@ -1,3 +1,5 @@
+Meteor.subscribe('users');
+
 /*****************************************************************************/
 /* Community: Event Handlers */
 /*****************************************************************************/
@@ -59,9 +61,21 @@ Template.Community.helpers({
     let rank = 1;
     let points = members[0].profile.points;
     members.forEach(member => {
-      if (member.profile.points < points) {
-        points = member.profile.points;
-        rank++;
+      if (member._id === Meteor.userId()) {
+        member.isCurrent = true;
+      }
+      if (!member.profile.name) {
+        member.profile.name = member.username;
+      }
+      member.picture = '<i class="icon-user"></i>';
+      member.profile.points = member.profile.points || 0;
+      if (member.profile.points > 0) {
+        if (member.profile.points < points) {
+          points = member.profile.points;
+          rank++;
+        }
+      } else {
+        rank = '-';
       }
       member.rank = rank;
     });
@@ -69,7 +83,10 @@ Template.Community.helpers({
   },
 
   pendingRequests: function() {
-    return Meteor.users.find({_id: {$in: this.pending}}, {sort: {"profile.name": 1}}).fetch();
+    if (this.pending) {
+      return Meteor.users.find({_id: {$in: this.pending}}, {sort: {"profile.name": 1}}).fetch();
+    }
+    return [];
   },
 
   isAdmin: function() {
@@ -104,10 +121,14 @@ Template.Community.onRendered(function () {
 
   if (this.data._id === 'facebook') {
     const fbUserData = Meteor.user().services.facebook;
-    console.log(fbUserData)
+    // console.log(fbUserData);
+
     $.get('https://graph.facebook.com/v2.6/' + fbUserData.id + '/friends/?access_token=' + fbUserData.accessToken + '&fields=name,id,picture', function(result) {
+      console.log(result);
       console.log(result.data);
       Session.set('fbFriends', result.data);
+    }, function(err) {
+      console.log(err);
     });
   }
 });
