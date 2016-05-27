@@ -1,0 +1,62 @@
+<template name="Dev">
+  <h3>ADMIN</h3>
+
+  <section class="matches">
+    <div class="day">
+    {{#each pastMatches}}
+    <h3>{{dateFormat date}} - {{timeFormat date}}</h3>
+    <section class="match">
+      <div class="group">{{dateFormat date}}</div>
+      <div class="team1">
+        <div class="flag {{machineName team1name}}"></div>
+        <div class="country">{{team1name}}</div>
+      </div>
+      <div class="team2">
+        <div class="flag {{machineName team2name}}"></div>
+        <div class="country">{{team2name}}</div>
+      </div>
+      <div class="info">
+        {{#if isset score1}}
+        {{score1}} - {{score2}}
+        <div class="sub">({{score1halftime}} - {{score2halftime}})</div>
+        {{else}}
+        No score yet
+        {{/if}}
+      </div>
+    </section>
+    {{/each}}
+    </div>
+  </section>
+
+  <section class="modal add-result alt">
+    <i class="icon-detail back"></i>
+    <h3>Add result</h3>
+    <form>
+      {{#with currentMatch}}
+      <div class="team1">
+        <div class="flag {{machineName team1name}}"></div>
+        <div class="country">{{team1name}}</div>
+      </div>
+      <div class="team2">
+        <div class="flag {{machineName team2name}}"></div>
+        <div class="country">{{team2name}}</div>
+      </div>
+
+      <h4 class="clear">End result</h4>
+      <div class="result">
+        <input type="text" id="score1" value="{{score1}}" required>
+        <input type="text" id="score2" value="{{score2}}" required>
+      </div>
+
+      <h4>Half time</h4>
+      <div class="result">
+        <input type="text" id="score1halftime" value="{{score1halftime}}" required>
+        <input type="text" id="score2halftime" value="{{score2halftime}}" required>
+      </div>
+
+      {{/with}}
+      <button type="submit" class="full">Save results</button>
+    </form>
+  </section>
+
+</template>
