@@ -68,3 +68,8 @@ Router.route('/bet', {
 });
 Router.route('/ranking');
 Router.route('/settings');
+
+
+Router.route('/dev', {
+  name: 'Dev'
+});
