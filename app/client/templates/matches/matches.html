@@ -1,12 +1,10 @@
 <template name="Matches">
 
-  {{> Stages}}
-
 <div class="pages-wrapper">
   <h3 class="fixed">{{currentDay}}</h3>
-<div class="page first-page">
+<div class="page first-page" data-title="Group stage">
   <section class="main matches">
-    {{#each groupedMatches}}
+    {{#each groupedMatches 'group'}}
       <h3>{{day}}</h3>
       <div class="day">
         {{#each matches}}
@@ -22,8 +20,15 @@
             <div class="country">{{team2name}}</div>
           </div>
           <div class="info">
-            {{timeFormat date}}
-            <div class="sub">local time</div>
+            {{#if isset score1}}
+              <div class="score">
+                {{score1}} - {{score2}}
+                <div class="sub">({{score1halftime}} - {{score2halftime}})</div>
+              </div>
+            {{else}}
+              {{timeFormat date}}
+              <div class="sub">local time</div>
+            {{/if}}
           </div>
           <div class="clear"></div>
         </section>
@@ -33,7 +38,7 @@
   </section>
 </div>
 
-  <div class="page second-page">
+  <div class="page second-page" data-title="Knock-out stage">
     <section class="main matches">
       {{#each groupedMatches 'knock-out'}}
         <h3>{{day}}</h3>

@@ -20,18 +20,11 @@
 
 .pages-wrapper {
   height: 100%;
-  // overflow: hidden;
-  // position: absolute;
-  // width: 100%;
 
   .page {
-    // border-right: 1px solid #e3ede1;
-    // float: left;
     height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
-    // position: relative;
-    // width: 25%;
 
     &:last-child {
       border-right: none;
@@ -79,6 +72,15 @@
   .sub {
     color: #5E9356;
     font-size: 12px;
+  }
+}
+
+.score {
+  font-size: 28px;
+  margin-top: -5px;
+
+  .sub {
+    font-size: 14px;
   }
 }
 

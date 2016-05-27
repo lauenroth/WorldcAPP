@@ -1,3 +1,8 @@
+Meteor.subscribe('currentTournament');
+Meteor.subscribe('groups');
+Meteor.subscribe('matches');
+Meteor.subscribe('teams');
+
 /*****************************************************************************/
 /* Matches: Event Handlers */
 /*****************************************************************************/
@@ -10,10 +15,13 @@ Template.Matches.events({
 Template.Matches.helpers({
 
   groupedMatches: function(stage) {
+    if (stage === 'knock-out') {
+      stage = {$not: 'group'};
+    }
     const groupedMatches = [];
     const matches = Matches.find({
       tournament: Session.get('tournament'),
-      stage: stage || Session.get('stage'),
+      stage: stage,
     }, {sort: {date: 1}}).fetch();
     let currentDayMatches = [];
     let currentDay = false;
@@ -25,7 +33,20 @@ Template.Matches.helpers({
       }
       else {
         match.team1name = 'TBD';
-        match.group = 'Round of 16';
+        switch (match.stage) {
+          case 'roundOf16':
+            match.group = 'Round of 16';
+            break;
+          case 'quarterFinals':
+            match.group = 'Quarter finals';
+            break;
+          case 'semiFinals':
+            match.group = 'Semi-finals';
+            break;
+          case 'final':
+            match.group = 'Final';
+            break;
+        }
       }
       match.team2name = (match.team2 === 'tbd' ? 'TBD' : Teams.findOne({_id: match.team2}).name);
 
@@ -68,9 +89,7 @@ Template.Matches.onRendered(function () {
   Session.set('menuItem', 'matches');
 
   // add page swiping functionality
-  $('.pages-wrapper').dragend({
-    pageClass: 'page',
-  });
+  $('.pages-wrapper').pageSwiper();
 
   // fix current date on top
   let currentH3 = null;
@@ -87,4 +106,5 @@ Template.Matches.onRendered(function () {
 });
 
 Template.Matches.onDestroyed(function () {
+  $('.page-switcher').remove();
 });
