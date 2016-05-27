@@ -18,15 +18,20 @@ standard-minifier-js    # JS minifier run for production mode
 es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
 fourseven:scss          # SASS support
+msavin:mongol           # debugging
 
 iron:router             # Routing
-autopublish             # Publish all data to the clients (for prototyping)
+#autopublish             # Publish all data to the clients (for prototyping)
 insecure                # Allow all DB writes from clients (for prototyping)
 
 alanning:roles          # User roles
 accounts-base           # Accounts (basics)
 accounts-password       # Accounts with passwords
+accounts-facebook       # Accounts for Facebook
+accounts-google         # Accounts for Google
+splendido:accounts-meld # Merge accounts of same user (e.g. Facebook & Google)
 accounts-ui
+
 yogiben:admin           # Admin CMS
 fortawesome:fontawesome
 
@@ -36,5 +41,5 @@ aldeed:collection2
 
 momentjs:moment         # Date and time
 
-appcache                # Basic caching
+#appcache                # Basic caching
 ground:db               # Ground Meteor.Collections offline
