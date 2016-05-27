@@ -1,3 +1,6 @@
+Meteor.subscribe('matches');
+Meteor.subscribe('myBets');
+
 Template.Bet.setBet = function(e, team) {
   e.preventDefault();
   let chosen = $(e.currentTarget).blur().html();
@@ -21,7 +24,7 @@ Template.Bet.saveBet = function() {
   if (currentBet.score1 !== undefined && currentBet.score2 !== undefined) {
     const bet = Bets.findOne({match: match._id});
     if (!bet) {
-      Bets.insert({
+      const inserted = Bets.insert({
         match: match._id,
         score1: currentBet.score1,
         score2: currentBet.score2,
@@ -40,14 +43,19 @@ Template.Bet.setMatch = function(data) {
   match.team1name = Teams.findOne({_id: match.team1}).name;
   match.team2name = Teams.findOne({_id: match.team2}).name;
   const bet = Bets.findOne({match: match._id, userId: Meteor.userId()});
-  Session.set('currentBet', bet ? bet : false);
+
 
   $team1.addClass('change');
   $team2.addClass('change');
+  $('.bet-team1').addClass('change');
+  $('.bet-team2').addClass('change');
   setTimeout(() => {
     Session.set('currentMatch', match);
+    Session.set('currentBet', bet ? bet : false);
     $team1.removeClass('change');
     $team2.removeClass('change');
+    $('.bet-team1').removeClass('change');
+    $('.bet-team2').removeClass('change');
   }, 300);
 };
 
@@ -115,6 +123,13 @@ Template.Bet.helpers({
     if (matches) {
       return Session.get('currentMatchIndex') < matches.length - 1;
     }
+  },
+
+  canStillBet: function() {
+    if (Session.get('currentMatch')) {
+      return Session.get('currentMatch').date > new Date();
+    }
+    return false;
   },
 
 });

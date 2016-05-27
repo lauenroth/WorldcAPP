@@ -29,22 +29,30 @@
       <div class="bet-team2">{{currentBet.score2}}</div>
     </div>
 
-    <div class="set-bet1">
-      <a href="#0">0</a>
-      <a href="#1">1</a>
-      <a href="#2">2</a>
-      <a href="#3">3</a>
-      <a href="#-">4</a>
-      <a href="#+">+</a>
+    {{#if canStillBet}}
+    <div class="set-bets">
+      <div class="set-bet1">
+        <a href="#0">0</a>
+        <a href="#1">1</a>
+        <a href="#2">2</a>
+        <a href="#3">3</a>
+        <a href="#-">4</a>
+        <a href="#+">+</a>
+      </div>
+      <div class="set-bet2">
+        <a href="#0">0</a>
+        <a href="#1">1</a>
+        <a href="#2">2</a>
+        <a href="#3">3</a>
+        <a href="#-">4</a>
+        <a href="#+">+</a>
+      </div>
     </div>
-    <div class="set-bet2">
-      <a href="#0">0</a>
-      <a href="#1">1</a>
-      <a href="#2">2</a>
-      <a href="#3">3</a>
-      <a href="#-">4</a>
-      <a href="#+">+</a>
-    </div>
+    {{else}}
+
+    <p class="time-is-up">Time is up.<br>You can't place a bet for this match anymore</p>
+
+    {{/if}}
 
     <nav>
       {{#if hasPrevMatch}}

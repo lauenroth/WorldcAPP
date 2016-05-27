@@ -24,6 +24,8 @@
     background-size: contain;
     clear: both;
     height: 120px;
+    margin: 0 auto;
+    max-width: 650px;
   }
 
   .bet-team1,
@@ -38,6 +40,13 @@
     margin-top: 20px;
     text-align: center;
     width: 60px;
+
+    transform-style: preserve-3d;
+    transition: .3s;
+
+    &.change {
+      transform: rotateY(90deg);
+    }
   }
   .bet-team2 {
     float: right;
@@ -45,12 +54,21 @@
     margin-right: 22%;
   }
 
+  .set-bets {
+    margin: 0 22%;
+
+    @media (min-width: 650px) {
+      margin: 0 auto;
+      width: 364px;
+    }
+  }
+
   .set-bet1,
   .set-bet2 {
     background-color: #fff;
     border-radius: 4px;
     float: left;
-    margin: 20px;
+    margin: 20px 0;
     padding: 10px 0 0 10px;
     position: relative;
     width: 115px;
@@ -84,8 +102,13 @@
     }
   }
 
+  .set-bet1 {
+    margin-left: -55px;
+  }
+
   .set-bet2 {
     float: right;
+    margin-right: -55px;
 
     &:before {
       left: 20px;
@@ -93,11 +116,24 @@
     }
   }
 
+  .time-is-up {
+    height: 190px;
+    font-size: 18px;
+    padding: 100px 10px 10px;
+    text-align: center;
+  }
+
   nav {
     clear: both;
     margin: 0 auto;
+    max-width: 604px;
     padding: 40px 0 0;
     text-align: center;
+
+    .btn:hover,
+    .btn:focus {
+      color: #fff;
+    }
 
     .prev {
       float: left;
