@@ -12,27 +12,27 @@ MatchSchema = new SimpleSchema({
   team1: {
     type: String,
     label: 'Team 1',
-    autoform: {
-      options: _.map(Teams.find().fetch(), function(team) {
-        return {
-          label: team.name,
-          value: team._id
-        };
-      })
-    }
+    // autoform: {
+    //   options: _.map(Teams.find().fetch(), function(team) {
+    //     return {
+    //       label: team.name,
+    //       value: team._id
+    //     };
+    //   })
+    // }
   },
 
   team2: {
     type: String,
     label: 'Team 2',
-    autoform: {
-      options: _.map(Teams.find().fetch(), function(team) {
-        return {
-          label: team.name,
-          value: team._id
-        };
-      })
-    }
+    // autoform: {
+    //   options: _.map(Teams.find().fetch(), function(team) {
+    //     return {
+    //       label: team.name,
+    //       value: team._id
+    //     };
+    //   })
+    // }
   },
 
   stadium: {
@@ -64,9 +64,33 @@ MatchSchema = new SimpleSchema({
   },
 
   tournament: {
-    type:  String,
+    type: String,
     label: 'Tournament'
-  }
+  },
+
+  score1: {
+    type: Number,
+    label: 'Score Team 1',
+    optional: true,
+  },
+
+  score2: {
+    type: Number,
+    label: 'Score Team 2',
+    optional: true,
+  },
+
+  score1halftime: {
+    type: Number,
+    label: 'Score Team 1 (halftime)',
+    optional: true,
+  },
+
+  score2halftime: {
+    type: Number,
+    label: 'Score Team 2 halftime',
+    optional: true,
+  },
 
 });
 
