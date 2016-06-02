@@ -12,7 +12,7 @@ aldeed:collection2-core@1.1.1
 aldeed:schema-deny@1.0.1
 aldeed:schema-index@1.0.1
 aldeed:simple-schema@1.5.3
-aldeed:tabular@1.4.2
+aldeed:tabular@1.6.1
 aldeed:template-extension@4.0.0
 allow-deny@1.0.4
 autoupdate@1.2.9
@@ -67,7 +67,7 @@ iron:core@1.0.11
 iron:dynamic-template@1.0.12
 iron:layout@1.0.12
 iron:location@1.0.11
-iron:middleware-stack@1.0.11
+iron:middleware-stack@1.1.0
 iron:router@1.0.12
 iron:url@1.0.11
 jquery@1.11.8
@@ -79,7 +79,7 @@ logging@1.0.12
 mdg:validation-error@0.2.0
 meteor@1.1.14
 meteor-base@1.0.4
-meteorhacks:meteorx@1.0.2
+meteorhacks:meteorx@1.4.1
 meteorhacks:unblock@1.1.0
 meteortoys:toykit@3.0.4
 mfactory:admin-lte@0.0.2
@@ -93,7 +93,6 @@ modules-runtime@0.6.3
 momentjs:moment@2.13.1
 mongo@1.1.7
 mongo-id@1.0.4
-mongo-livedata@1.0.12
 msavin:mongol@2.0.1
 npm-bcrypt@0.8.5
 npm-mongo@1.4.43
