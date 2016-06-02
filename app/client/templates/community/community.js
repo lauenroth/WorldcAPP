@@ -15,6 +15,10 @@ Template.Community.events({
     }
   },
 
+  'click .ranking tr': function() {
+    Router.go('/user/' + this._id);
+  },
+
   'keyup #community-name': function() {
     let changed = $('#community-name').val() !== this.name;
 

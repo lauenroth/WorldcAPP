@@ -1,0 +1,63 @@
+/*****************************************************************************/
+/* User: Style */
+/*****************************************************************************/
+.profile {
+
+  h3.fixed {
+    top: 0;
+    width: 100%;
+  }
+  .back {
+    position: fixed;
+    z-index: 20;
+  }
+
+  .picture {
+    border: 3px solid #c5dac1;
+    border-radius: 100%;
+    height: 80px;
+    margin: 67px auto 20px;
+    position: relative;
+    width: 80px;
+
+    img {
+      border-radius: 100%;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .supported-team {
+    height: 30px;
+    position: absolute;
+    right: -8px;
+    top: -8px;
+    width: 30px;
+  }
+
+  .points {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .match {
+    .flag {
+      height: 30px;
+      width: 30px;
+    }
+
+    .country {
+      font-size: 14px;
+    }
+
+    .info {
+      height: 82px;
+      padding-top: 27px;
+    }
+
+    .sub {
+      margin-top: 8px;
+    }
+  }
+}

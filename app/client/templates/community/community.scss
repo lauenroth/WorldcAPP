@@ -58,6 +58,8 @@
       width: 47px;
     }
     .name {
+      line-height: 50px;
+      padding: 0;
       text-align: left;
     }
     .points {
@@ -70,6 +72,8 @@
       box-shadow: 0 0 10px #999;
       height: 35px;
       margin: 0 10px 0 5px;
+      position: relative;
+      top: 3px;
       width: 35px;
     }
     .icon-user {
