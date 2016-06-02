@@ -13,6 +13,45 @@ function calculatePoints(bet, scores) {
   return points;
 }
 
+/**
+ * update team scores according to match result
+ */
+Template.Dev.updateTeams = function(match) {
+  const teamUpdates = {
+    points1: (match.score1 > match.score2 ? 3 : (match.score1 === match.score2 ? 1 : 0)),
+    points2: (match.score2 > match.score1 ? 3 : (match.score1 === match.score2 ? 1 : 0)),
+    won1: (match.score1 > match.score2 ? 1 : 0),
+    won2: (match.score1 < match.score2 ? 1 : 0),
+    draw1: (match.score1 === match.score2 ? 1 : 0),
+    draw2: (match.score1 === match.score2 ? 1 : 0),
+    lost1: (match.score1 < match.score2 ? 1 : 0),
+    lost2: (match.score1 > match.score2 ? 1 : 0),
+    goalsFor1: match.score1,
+    goalsFor2: match.score2,
+    goalsAgainst1: match.score2,
+    goalsAgainst2: match.score1,
+  };
+
+  Teams.update({_id: match.team1}, {$inc: {
+    points: teamUpdates.points1,
+    won: teamUpdates.won1,
+    draw: teamUpdates.draw1,
+    lost: teamUpdates.lost1,
+    goalsFor: teamUpdates.goalsFor1,
+    goalsAgainst: teamUpdates.goalsAgainst1,
+    goalDifference: teamUpdates.goalsFor1 - teamUpdates.goalsAgainst1,
+  } });
+  Teams.update({_id: match.team2}, {$inc: {
+    points: teamUpdates.points2,
+    won: teamUpdates.won2,
+    draw: teamUpdates.draw2,
+    lost: teamUpdates.lost2,
+    goalsFor: teamUpdates.goalsFor2,
+    goalsAgainst: teamUpdates.goalsAgainst2,
+    goalDifference: teamUpdates.goalsFor2 - teamUpdates.goalsAgainst2,
+  } });
+};
+
 
 Template.Dev.events({
 
@@ -23,6 +62,30 @@ Template.Dev.events({
 
   'click .back': function() {
     $('.add-result').removeClass('show');
+  },
+
+  'click .recalculate-teams': function() {
+
+    // reset team scores
+    const teams = Teams.find().fetch();
+    teams.forEach(team => {
+      Teams.update({_id: team._id}, {$set: {won: 0, draw: 0, lost: 0, goalsFor: 0, goalsAgainst: 0, goalDifference: 0, points: 0}});
+    });
+
+    // get all matches with a result
+    const matches = Matches.find({score1: {$exists: 1}}).fetch();
+    matches.forEach(match => {
+      Template.Dev.updateTeams(match);
+    });
+  },
+
+  'click .recalculate-users': function() {
+
+    // reset user points
+    const users = Meteor.users.find().fetch();
+    users.forEach(user => {
+      Meteor.users.update({_id: user._id}, {$set: {'profile.points': 0}});
+    });
   },
 
   'submit form': function(e) {
@@ -37,12 +100,20 @@ Template.Dev.events({
       error('Scores cannot be correct');
     } else {
       const match = Session.get('currentMatch');
+
+      // update match
       Matches.update({_id: match._id}, {$set: {
         score1: scores.team1,
         score2: scores.team2,
         score1halftime: scores.half1,
         score2halftime: scores.half2,
       }});
+
+      match.score1 = scores.team1;
+      match.score2 = scores.team2;
+
+      // update teams
+      Template.Dev.updateTeams(match);
 
       // update bets
       const bets = Bets.find({match: match._id});

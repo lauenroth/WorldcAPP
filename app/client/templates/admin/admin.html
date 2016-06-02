@@ -1,7 +1,7 @@
 <template name="Dev">
   <h3>ADMIN</h3>
 
-  <section class="matches">
+  <section class="main matches admin">
     <div class="day">
     {{#each pastMatches}}
     <h3>{{dateFormat date}} - {{timeFormat date}}</h3>
@@ -25,6 +25,11 @@
       </div>
     </section>
     {{/each}}
+    </div>
+
+    <div class="buttons">
+      <button class="full recalculate-teams">Recalculate Team Points</button>
+      <button class="full recalculate-users">Recalculate User Points</button>
     </div>
   </section>
 
