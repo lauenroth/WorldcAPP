@@ -68,7 +68,12 @@ Router.route('/bet', {
 });
 Router.route('/ranking');
 Router.route('/settings');
-
+Router.route('/user/:id', {
+  name: 'User',
+  data: function() {
+    return Meteor.users.findOne({_id: this.params.id});
+  }
+});
 
 Router.route('/dev', {
   name: 'Dev'
