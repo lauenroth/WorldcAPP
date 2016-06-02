@@ -73,6 +73,6 @@ Meteor.publish('users', function() {
     });
     return Meteor.users.find({_id: {$in: userIds}});
   } else {
-    return Meteor.users();
+    return Meteor.users.find();
   }
 });
