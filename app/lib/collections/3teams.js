@@ -72,6 +72,12 @@ TeamSchema = new SimpleSchema({
     defaultValue: 0
   },
 
+  goalDifference: {
+    type: Number,
+    label: 'Goal difference',
+    defaultValue: 0
+  },
+
   points: {
     type: Number,
     label: 'Points',
