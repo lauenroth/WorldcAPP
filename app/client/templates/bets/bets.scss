@@ -2,7 +2,12 @@
 /* Bets: Style */
 /*****************************************************************************/
 .bets {
-  padding-top: 40px;
+  // padding-top: 40px;
+
+  h3.fixed {
+    top: 0;
+    width: 100%;
+  }
 
   .match {
     height: 70px;
