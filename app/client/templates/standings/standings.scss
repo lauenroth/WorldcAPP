@@ -87,6 +87,13 @@
       }
       .flag {
         margin: 2px 2px 6px;
+
+        &.tbd:before {
+          display: inline-block;
+          text-align: center;
+          top: 0;
+          width: 100%;
+        }
       }
       .name {
         clear: both;
@@ -94,13 +101,27 @@
         text-overflow: ellipsis;
         white-space: nowrap;
       }
-      .score {
+      .score,
+      .info {
         font-size: 18px;
         left: 0;
         position: absolute;
         right: 0;
         text-align: center;
         top: 5px;
+
+        .sub {
+          font-size: 12px;
+          margin-top: -3px;
+        }
+      }
+      .info {
+        font-size: 12px;
+        padding: 0;
+
+        .sub {
+          margin-top: -2px;
+        }
       }
     }
     .final .match {
@@ -110,8 +131,19 @@
         height: 40px;
         width: 40px;
       }
+      .tbd:before {
+        font-size: 22px;
+        line-height: 40px;
+      }
       .score {
         font-size: 28px;
+      }
+      .info {
+        font-size: 18px;
+
+        .sub {
+          font-size: inherit;
+        }
       }
     }
   }

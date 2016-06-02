@@ -1,0 +1,23 @@
+<template name="KnockOutStanding">
+  <div class="match">
+    <div class="team1">
+      <div class="flag {{machineName team1.name}}"></div>
+      <div class="name">{{team1.name}}</div>
+    </div>
+    <div class="team2">
+      <div class="flag {{machineName team2.name}}"></div>
+      <div class="name">{{team2.name}}</div>
+    </div>
+
+      {{#if isset score1}}
+      <div class="score">
+        {{score1}} - {{score2}}
+      </div>
+      {{else}}
+      <div class="info">
+        {{dateFormat date}}
+        <div class="sub">{{timeFormat date}}</div>
+      </div>
+      {{/if}}
+  </div>
+</template>

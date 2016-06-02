@@ -1,10 +1,8 @@
 <template name="Standings">
 
-    {{> Stages}}
-
     <div class="pages-wrapper">
 
-      <div class="page">
+      <div class="page" data-title="Group stage">
 
         <section class="main standings">
           {{#each groups}}
@@ -37,182 +35,35 @@
         </section>
       </div>
 
-      <div class="page">
+      <div class="page" data-title="Knock-out stage">
         <section class="main standings knock-out">
           <h3>Round of 16</h3>
 
           <div class="phase round-16">
-            <div class="match">
-              <div class="team1">
-                <div class="flag france"></div>
-                <div class="name">France</div>
-              </div>
-              <div class="team2 lost">
-                <div class="flag portugal"></div>
-                <div class="name">Portugal</div>
-              </div>
-              <div class="score">1:0</div>
-            </div>
-            <div class="match">
-              <div class="team1 lost">
-                <div class="flag poland"></div>
-                <div class="name">Poland</div>
-              </div>
-              <div class="team2">
-                <div class="flag england"></div>
-                <div class="name">England</div>
-              </div>
-              <div class="score">1:2</div>
-            </div>
-            <div class="match">
-              <div class="team1">
-                <div class="flag belgium"></div>
-                <div class="name">Belgium</div>
-              </div>
-              <div class="team2">
-                <div class="flag austria"></div>
-                <div class="name">Austria</div>
-              </div>
-            </div>
-            <div class="match">
-              <div class="team1">
-                <div class="flag turkey"></div>
-                <div class="name">Turkey</div>
-              </div>
-              <div class="team2">
-                <div class="flag germany"></div>
-                <div class="name">Germany</div>
-              </div>
-            </div>
-            <div class="match">
-              <div class="team1">
-                <div class="flag sweden"></div>
-                <div class="name">Sweden</div>
-              </div>
-              <div class="team2">
-                <div class="flag spain"></div>
-                <div class="name">Spain</div>
-              </div>
-            </div>
-            <div class="match">
-              <div class="team1">
-                <div class="flag russia"></div>
-                <div class="name">Russia</div>
-              </div>
-              <div class="team2">
-                <div class="flag switzerland"></div>
-                <div class="name">Switzerland</div>
-              </div>
-            </div>
-            <div class="match">
-              <div class="team1">
-                <div class="flag italy"></div>
-                <div class="name">Italy</div>
-              </div>
-              <div class="team2">
-                <div class="flag northern_ireland"></div>
-                <div class="name">Northern Ireland</div>
-              </div>
-            </div>
-            <div class="match">
-              <div class="team1">
-                <div class="flag ukraine"></div>
-                <div class="name">Ukraine</div>
-              </div>
-              <div class="team2">
-                <div class="flag czech_republic"></div>
-                <div class="name">Czech Republic</div>
-              </div>
-            </div>
+            {{#each roundOf16}}
+              {{> KnockOutStanding this}}
+            {{/each}}
           </div>
 
           <h3>Quarter finals</h3>
           <div class="phase">
-            <div class="match">
-              <div class="team1">
-                <div class="flag france"></div>
-                <div class="name">France</div>
-              </div>
-              <div class="team2 lost">
-                <div class="flag portugal"></div>
-                <div class="name">Portugal</div>
-              </div>
-              <div class="score">1:0</div>
-            </div>
-            <div class="match">
-              <div class="team1">
-                <div class="flag france"></div>
-                <div class="name">France</div>
-              </div>
-              <div class="team2 lost">
-                <div class="flag portugal"></div>
-                <div class="name">Portugal</div>
-              </div>
-              <div class="score">1:0</div>
-            </div>
-            <div class="match">
-              <div class="team1">
-                <div class="flag france"></div>
-                <div class="name">France</div>
-              </div>
-              <div class="team2 lost">
-                <div class="flag portugal"></div>
-                <div class="name">Portugal</div>
-              </div>
-              <div class="score">1:0</div>
-            </div>
-            <div class="match">
-              <div class="team1">
-                <div class="flag france"></div>
-                <div class="name">France</div>
-              </div>
-              <div class="team2 lost">
-                <div class="flag portugal"></div>
-                <div class="name">Portugal</div>
-              </div>
-              <div class="score">1:0</div>
-            </div>
+            {{#each quarterFinals}}
+              {{> KnockOutStanding this}}
+            {{/each}}
           </div>
 
           <h3>Semi finals</h3>
           <div class="phase">
-            <div class="match">
-              <div class="team1">
-                <div class="flag france"></div>
-                <div class="name">France</div>
-              </div>
-              <div class="team2 lost">
-                <div class="flag portugal"></div>
-                <div class="name">Portugal</div>
-              </div>
-              <div class="score">1:0</div>
-            </div>
-            <div class="match">
-              <div class="team1">
-                <div class="flag france"></div>
-                <div class="name">France</div>
-              </div>
-              <div class="team2 lost">
-                <div class="flag portugal"></div>
-                <div class="name">Portugal</div>
-              </div>
-              <div class="score">1:0</div>
-            </div>
+            {{#each semiFinals}}
+              {{> KnockOutStanding this}}
+            {{/each}}
           </div>
 
           <h3>Final</h3>
           <div class="phase final">
-            <div class="match">
-              <div class="team1">
-                <div class="flag france"></div>
-                <div class="name">France</div>
-              </div>
-              <div class="team2 lost">
-                <div class="flag portugal"></div>
-                <div class="name">Portugal</div>
-              </div>
-              <div class="score">1:0</div>
-            </div>
+            {{#each final}}
+              {{> KnockOutStanding this}}
+            {{/each}}
           </div>
 
           </section>
