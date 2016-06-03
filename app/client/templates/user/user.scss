@@ -12,11 +12,16 @@
     z-index: 20;
   }
 
+  header {
+    padding-top: 60px;
+  }
+
   .picture {
     border: 3px solid #c5dac1;
     border-radius: 100%;
     height: 80px;
-    margin: 67px auto 20px;
+    float: left;
+    margin: 0 60px 20px 20px;
     position: relative;
     width: 80px;
 
@@ -35,10 +40,13 @@
     width: 30px;
   }
 
-  .points {
+  .name {
     font-size: 20px;
-    margin-bottom: 20px;
-    text-align: center;
+    margin: 10px 0 10px;
+  }
+
+  .points {
+    font-size: 16px;
   }
 
   .match {
@@ -58,6 +66,32 @@
 
     .sub {
       margin-top: 8px;
+    }
+  }
+
+  .statistics {
+    border-bottom: 1px solid #c5dac1;
+    color: #5E9356;
+    height: 75px;
+
+    > div {
+      float: left;
+      padding: 13px 10px 0;
+      text-align: center;
+      width: 25%;
+    }
+    .count {
+      background-color: #e3ede1;
+      border: 1px solid #c5dac1;
+      border-radius: 100%;
+      color: #5E9356;
+      font-size: 16px;
+      line-height: 30px;
+      margin: 0 auto;
+      width: 30px;
+    }
+    span {
+      font-size: 10px;
     }
   }
 }
