@@ -79,10 +79,6 @@ AdminConfig = {
       ]
     },
 
-    Chat: {
-
-    },
-
   },
 
   autoForm: {
