@@ -1,1 +1,3 @@
-app/public/images/flags
+config/.deploy
+app/node_modules
+build
