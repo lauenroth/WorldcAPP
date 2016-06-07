@@ -74,23 +74,31 @@ Template.Bet.events({
 
   'click .prev': function(e) {
     e.preventDefault();
-    Template.Bet.saveBet();
-    const currentMatchIndex = Session.get('currentMatchIndex');
-    if (currentMatchIndex > 0) {
-      Session.set('currentMatchIndex', currentMatchIndex - 1);
-      Template.Bet.setMatch(this);
+    if (Meteor.userId()) {
+      Template.Bet.saveBet();
+      const currentMatchIndex = Session.get('currentMatchIndex');
+      if (currentMatchIndex > 0) {
+        Session.set('currentMatchIndex', currentMatchIndex - 1);
+        Template.Bet.setMatch(this);
+      }
+    } else {
+      $('.login').addClass('show');
     }
   },
 
   'click .next': function(e) {
     e.preventDefault();
-    Template.Bet.saveBet();
-    const currentMatchIndex = Session.get('currentMatchIndex');
-    if (Session.get('matches').length > currentMatchIndex + 1) {
-      Session.set('currentMatchIndex', currentMatchIndex + 1);
-      Template.Bet.setMatch(this);
+    if (Meteor.userId()) {
+      Template.Bet.saveBet();
+      const currentMatchIndex = Session.get('currentMatchIndex');
+      if (Session.get('matches').length > currentMatchIndex + 1) {
+        Session.set('currentMatchIndex', currentMatchIndex + 1);
+        Template.Bet.setMatch(this);
+      } else {
+        Router.go('/bets');
+      }
     } else {
-      Router.go('/bets');
+      $('.login').addClass('show');
     }
   },
 });

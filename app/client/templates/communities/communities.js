@@ -19,10 +19,14 @@ Template.Communities.events({
 
   'click .buttons .add': function(e) {
     e.preventDefault();
-    $('.modal.add-community').addClass('show');
+    if (Meteor.userId()) {
+      $('.modal.add-community').addClass('show');
+    } else {
+      $('.login').addClass('show');
+    }
   },
 
-  'click .icon-detail': function() {
+  'click .modal .back': function() {
     $('.modal.show').removeClass('show');
     Session.set('communitySearch', '');
     $('#search').val('');

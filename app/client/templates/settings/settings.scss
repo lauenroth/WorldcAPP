@@ -45,4 +45,20 @@
   button[type="submit"] {
     width: 100%;
   }
+
+  .signout {
+    bottom: 10px;
+    position: absolute;
+    right: 20px;
+  }
+}
+
+.choose-team {
+  z-index: 1070;
+
+  .name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }

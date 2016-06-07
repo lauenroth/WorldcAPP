@@ -3,6 +3,10 @@
 /*****************************************************************************/
 Template.Login.events({
 
+  'click .login .back': function() {
+    $('.login').removeClass('show');
+  },
+
   'click .options .sign-in': function() {
     $('.login').addClass('sign-in').removeClass('sign-up');
     $('button[type="submit"]').html('Sign in');
@@ -90,6 +94,11 @@ Template.Login.events({
 /* Login: Helpers */
 /*****************************************************************************/
 Template.Login.helpers({
+
+  isSettingsPage: function() {
+    return Session.get('menuItem') === 'settings';
+  },
+
 });
 
 /*****************************************************************************/

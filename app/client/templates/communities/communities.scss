@@ -91,6 +91,7 @@
 }
 
 .modal.search-community {
+  bottom: 56px;
 
   h3 {
     left: 0;
@@ -111,7 +112,7 @@
     margin: 0;
     padding-right: 75px;
     position: fixed;
-    top: 37px;
+    top: 41px;
     width: 100%;
     z-index: 2;
   }
@@ -152,6 +153,7 @@
 }
 
 .modal.add-community {
+  bottom: 56px;
 
   form {
     padding: 10px;

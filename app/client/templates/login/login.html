@@ -2,7 +2,10 @@
 
   {{#unless currentUser }}
 
-  <section class="login sign-in">
+  <section class="login sign-in {{#if isSettingsPage}}show{{/if}}">
+    {{#unless isSettingsPage}}
+      <i class="icon-detail back"></i>
+    {{/unless}}
     <h3>Login required</h3>
 
     <div class="options">

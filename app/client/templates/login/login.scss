@@ -11,8 +11,13 @@
   padding: 10px;
   position: fixed;
   right: 0;
-  top: 0;
-  z-index: 1050;
+  top: 100%;
+  transition: .3s;
+  z-index: 1060;
+
+  &.show {
+    top: 0;
+  }
 
   &.sign-in {
     .options .sign-in {
@@ -28,6 +33,10 @@
     .options .dot:after {
       left: 100%;
     }
+  }
+
+  .back {
+    transform: rotate(90deg);
   }
 
   h3 {

@@ -15,8 +15,10 @@
     }
   }
 
-  .flag {
-
+  .country {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .betting {
@@ -117,9 +119,9 @@
   }
 
   .time-is-up {
-    height: 190px;
+    height: 160px;
     font-size: 18px;
-    padding: 100px 10px 10px;
+    padding: 70px 10px 10px;
     text-align: center;
   }
 
@@ -127,7 +129,7 @@
     clear: both;
     margin: 0 auto;
     max-width: 604px;
-    padding: 40px 0 0;
+    padding: 10px 0 0;
     text-align: center;
 
     .btn:hover,

@@ -58,7 +58,7 @@ h3 {
 	font-size: 18px;
 	font-weight: normal;
 	margin: 0;
-	padding: 8px;
+	padding: 10px;
 	text-align: center;
 
 	&.fixed {
@@ -193,7 +193,8 @@ input {
 
 .icon-detail.back {
 	color: #5E9356;
-	font-size: 26px;
+	font-size: 30px;
+	left: 0;
 	position: absolute;
 	top: 0;
 	transform: rotate(180deg);
