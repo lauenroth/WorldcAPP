@@ -15,7 +15,6 @@
       <div class="points">Total points: {{profile.points}}</div>
     </header>
 
-    <h3>Bets</h3>
     <div class="statistics">
       <div>
         <div class="count">1</div>
@@ -27,7 +26,7 @@
       </div>
       <div>
         <div class="count">2</div>
-        <span>1 points</span>
+        <span>1 point</span>
       </div>
       <div>
         <div class="count">10</div>
@@ -35,23 +34,48 @@
       </div>
     </div>
 
+    <h3>Bets</h3>
+    <!-- <div class="champion">
+      Champion
+      <div class="flag belgium"></div>
+      Belgium
+    </div> -->
+
     {{#each bets}}
       <section class="match">
-        <div class="team1">
-          <div class="flag {{machineName team1name}}"></div>
-          <div class="country">{{team1name}}</div>
+        <div class="bet-info">
+          <div class="date">{{dateFormat date}} - {{timeFormat date}}</div>
+          <div class="team1">
+            <div class="flag {{machineName team1name}}"></div>
+            <div class="country">{{team1name}}</div>
+          </div>
+          <div class="team2">
+            <div class="flag {{machineName team2name}}"></div>
+            <div class="country">{{team2name}}</div>
+          </div>
+          <div class="info">
+            {{#if isset bet}}
+              <div class="score">
+                {{bet.score1}} - {{bet.score2}}
+
+                <div class="sub">
+                {{#if isset score1}}
+                  result: {{score1}} - {{score2}}
+                {{else}}
+                  no result yet
+                {{/if}}
+                </div>
+              </div>
+            {{else}}
+              <div class="sub">No bet set</div>
+            {{/if}}
+          </div>
         </div>
-        <div class="team2">
-          <div class="flag {{machineName team2name}}"></div>
-          <div class="country">{{team2name}}</div>
-        </div>
-        <div class="info">
-          {{#if isset bet}}
-            <div class="score">
-              {{bet.score1}} - {{bet.score2}}
-            </div>
+        <div class="result">
+          {{#if isset bet.points}}
+            {{bet.points}}
           {{else}}
-            <div class="sub">No bet set</div>
+            -
           {{/if}}
         </div>
       </section>

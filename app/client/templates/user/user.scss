@@ -21,7 +21,7 @@
     border-radius: 100%;
     height: 80px;
     float: left;
-    margin: 0 60px 20px 20px;
+    margin: 0 40px 20px 20px;
     position: relative;
     width: 80px;
 
@@ -49,19 +49,54 @@
     font-size: 16px;
   }
 
+  .champion {
+    border-bottom: 1px solid #e3ede1;
+    padding: 10px;
+    text-align: center;
+  }
+
   .match {
+
+    &:last-child {
+      border-bottom: 1px solid #e3ede1;
+    }
+
+    .date {
+      margin-top: 0;
+      padding-top: 5px;
+    }
+
+    .team1, .team2 {
+      padding: 0 10px;
+      width: 33%;
+    }
+
     .flag {
       height: 30px;
+      margin-bottom: 5px;
       width: 30px;
     }
 
     .country {
       font-size: 14px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     .info {
-      height: 82px;
-      padding-top: 27px;
+      height: 65px;
+      padding: 15px 33% 0;
+    }
+
+    .score {
+      font-size: 20px;
+      margin-top: -10px;
+
+      .sub {
+        margin-top: 2px;
+        font-size: 12px;
+      }
     }
 
     .sub {
@@ -70,7 +105,9 @@
   }
 
   .statistics {
-    border-bottom: 1px solid #c5dac1;
+    clear: both;
+    background-color: #f8faf7;
+    border-top: 1px solid #e3ede1;
     color: #5E9356;
     height: 75px;
 
@@ -93,5 +130,17 @@
     span {
       font-size: 10px;
     }
+  }
+
+  .bet-info {
+    float: left;
+    width: 80%;
+  }
+  .result {
+    border-left: 1px solid #e3ede1;
+    float: right;
+    line-height: 84px;
+    text-align: center;
+    width: 20%;
   }
 }
