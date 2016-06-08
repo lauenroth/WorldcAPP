@@ -5,9 +5,9 @@ Meteor.subscribe('communities');
 /*****************************************************************************/
 Template.Communities.events({
 
-  'click .facebook': function() {
-    Router.go('/communities/facebook');
-  },
+  // 'click .facebook': function() {
+  //   Router.go('/communities/facebook');
+  // },
 
   'click .buttons .search': function(e) {
     e.preventDefault();
