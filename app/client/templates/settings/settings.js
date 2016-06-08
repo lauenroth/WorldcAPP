@@ -87,9 +87,13 @@ Template.Settings.helpers({
             picture: google.picture,
             supportedTeamFlag: 'tbd',
           }
+        } else {
+          user.picture = '/images/profile-default.png';
         }
+      } else {
+        user.picture = '/images/profile-default.png';
       }
-      if (!user.name) {
+      if (!user.name && user.profile && user.profile.name) {
         user.name = user.profile.name;
       }
 
@@ -97,8 +101,11 @@ Template.Settings.helpers({
       user.supportedTeamFlag = 'tbd';
       if (user.profile.supportedTeam) {
         user.supportedTeam = user.profile.supportedTeam;
-        user.supportedTeamName = Teams.findOne({_id: user.supportedTeam}).name;
-        user.supportedTeamFlag = Teams.findOne({_id: user.supportedTeam}).name;
+        const team = Teams.findOne({_id: user.supportedTeam});
+        if (team) {
+          user.supportedTeamName = team.name;
+          user.supportedTeamFlag = team.name;
+        }
       }
       return user;
     }

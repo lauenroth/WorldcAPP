@@ -6,7 +6,8 @@
 
     <header>
       <div class="picture">
-        <img src="/images/profile.jpg" alt="">
+        <img src="{{profilePicture}}">
+        <!-- <img src="/images/profile.jpg" alt=""> -->
         {{#if supportedTeam}}
           <div class="flag {{machineName supportedTeam}} supported-team"></div>
         {{/if}}
@@ -43,7 +44,7 @@
       Belgium
     </div> -->
     {{#unless bets.length}}
-      <p class="no-result">Bets will show up when the first match has started.</p>
+      <p class="no-result">Bets will show up once the first match has started.</p>
     {{/unless}}
 
     {{#each bets}}

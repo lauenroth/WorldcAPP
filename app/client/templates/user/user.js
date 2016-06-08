@@ -12,6 +12,14 @@ Template.User.events({
 /*****************************************************************************/
 Template.User.helpers({
 
+  profilePicture: function() {
+    let picture = '/images/profile-default.png';
+    if (this.services.facebook) {
+      picture = 'http://graph.facebook.com/' + this.services.facebook.id + '/picture/?type=large';
+    }
+    return picture;
+  },
+
   supportedTeam: function() {
     if (this.profile.supportedTeam && this.profile.supportedTeam !== 'tbd') {
       return this.profile.supportedTeam.substr(9).replace('_', ' ');
@@ -35,12 +43,22 @@ Template.User.helpers({
   },
 
   statistics: function() {
-    return {
+    let statistics = {
       zero: 0,
-      one: 1,
-      two: 2,
-      three: 3
+      one: 0,
+      two: 0,
+      three: 0
     };
+    const bets = Bets.find({userId: Meteor.userId()}).fetch();
+    bets.forEach(bet => {
+      switch (bet.points) {
+        case 0: statistics.zero++; break;
+        case 1: statistics.one++; break;
+        case 2: statistics.two++; break;
+        case 3: statistics.three++; break;
+      }
+    });
+    return statistics;
   },
 
 });
@@ -52,17 +70,17 @@ Template.User.onCreated(function () {
 });
 
 Template.User.onRendered(function () {
-  $('.count').each(function () {
-    $(this).prop('Counter',0).animate({
-        Counter: $(this).text()
-    }, {
-        duration: 2000,
-        easing: 'swing',
-        step: function (now) {
-            $(this).text(Math.ceil(now));
-        }
-    });
-});
+  // $('.count').each(function () {
+  //   $(this).prop('Counter',0).animate({
+  //       Counter: $(this).text()
+  //   }, {
+  //       duration: 1000,
+  //       easing: 'swing',
+  //       step: function (now) {
+  //           $(this).text(Math.ceil(now));
+  //       }
+  //   });
+  // });
 });
 
 Template.User.onDestroyed(function () {

@@ -22,12 +22,11 @@
   }
 
   .picture {
+    background-color: #e3ede1;
     border-radius: 100%;
     box-shadow: 0 0 10px #999;
     height: 50px;
-    position: absolute;
-    right: 25px;
-    top: 47px;
+    margin: 0 auto 10px;
     width: 50px;
   }
 
@@ -47,9 +46,9 @@
   }
 
   .signout {
-    bottom: 10px;
     position: absolute;
-    right: 20px;
+    right: 15px;
+    top: 4px;
   }
 }
 
