@@ -97,7 +97,7 @@ Template.Settings.helpers({
 
       // user.profile.email = user.emails.length ? user.emails[0].address : '';
       user.supportedTeamFlag = 'tbd';
-      if (user.profile.supportedTeam) {
+      if (user.profile && user.profile.supportedTeam) {
         user.supportedTeam = user.profile.supportedTeam;
         const team = Teams.findOne({_id: user.supportedTeam});
         if (team) {
