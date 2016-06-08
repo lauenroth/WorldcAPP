@@ -72,6 +72,9 @@ Template.Community.helpers({
         member.profile.name = member.username;
       }
       member.picture = '<i class="icon-user"></i>';
+      if (member.services.facebook) {
+        member.picture = '<img src="http://graph.facebook.com/' + member.services.facebook.id + '/picture/?type=large">';
+      }
       member.profile.points = member.profile.points || 0;
       if (member.profile.points > 0) {
         if (member.profile.points < points) {
