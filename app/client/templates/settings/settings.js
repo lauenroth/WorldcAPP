@@ -73,18 +73,14 @@ Template.Settings.helpers({
       if (user.services) {
         if (user.services.facebook) {
           const fb = user.services.facebook;
-          user = {
-            name: fb.name,
-            email: fb.email,
-            picture: "http://graph.facebook.com/" + fb.id + "/picture/?type=large",
-          }
+          user.name = fb.name;
+          user.email = fb.email;
+          user.picture = "http://graph.facebook.com/" + fb.id + "/picture/?type=large";
         } else if (user.services.google) {
           const google = user.services.google;
-          user = {
-            name: google.name,
-            email: google.email,
-            picture: google.picture,
-          }
+          user.name = google.name;
+          user.email = google.email;
+          user.picture = google.picture;
         } else {
           user.picture = '/images/profile-default.png';
         }
