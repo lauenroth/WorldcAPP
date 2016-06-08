@@ -71,7 +71,9 @@ Router.route('/settings');
 Router.route('/user/:id', {
   name: 'User',
   data: function() {
-    return Meteor.users.findOne({_id: this.params.id});
+    let user = Meteor.users.findOne({_id: this.params.id});
+    if (!user.profile.points) user.profile.points = 0;
+    return user;
   }
 });
 
