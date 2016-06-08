@@ -14,7 +14,7 @@ Template.User.helpers({
 
   profilePicture: function() {
     let picture = '/images/profile-default.png';
-    if (this.services.facebook) {
+    if (this.services && this.services.facebook) {
       picture = 'http://graph.facebook.com/' + this.services.facebook.id + '/picture/?type=large';
     }
     return picture;

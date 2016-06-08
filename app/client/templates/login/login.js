@@ -9,12 +9,12 @@ Template.Login.events({
 
   'click .options .sign-in': function() {
     $('.login').addClass('sign-in').removeClass('sign-up');
-    $('button[type="submit"]').html('Sign in');
+    $('.login-form button[type="submit"]').html('Sign in');
   },
 
   'click .options .sign-up': function() {
     $('.login').addClass('sign-up').removeClass('sign-in');
-    $('button[type="submit"]').html('Sign up');
+    $('.login-form button[type="submit"]').html('Sign up');
   },
 
   'click .forgot-password': function() {
