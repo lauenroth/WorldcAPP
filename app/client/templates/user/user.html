@@ -16,22 +16,24 @@
     </header>
 
     <div class="statistics">
+      {{#with statistics}}
       <div>
-        <div class="count">1</div>
+        <div class="count">{{three}}</div>
         <span>3 points</span>
       </div>
       <div>
-        <div class="count">0</div>
+        <div class="count">{{two}}</div>
         <span>2 points</span>
       </div>
       <div>
-        <div class="count">2</div>
+        <div class="count">{{one}}</div>
         <span>1 point</span>
       </div>
       <div>
-        <div class="count">10</div>
+        <div class="count">{{zero}}</div>
         <span>0 points</span>
       </div>
+      {{/with}}
     </div>
 
     <h3>Bets</h3>
@@ -40,6 +42,9 @@
       <div class="flag belgium"></div>
       Belgium
     </div> -->
+    {{#unless bets.length}}
+      <p class="no-result">Bets will show up when the first match has started.</p>
+    {{/unless}}
 
     {{#each bets}}
       <section class="match">

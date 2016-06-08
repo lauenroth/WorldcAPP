@@ -34,6 +34,15 @@ Template.User.helpers({
     return pastMatches;
   },
 
+  statistics: function() {
+    return {
+      zero: 0,
+      one: 1,
+      two: 2,
+      three: 3
+    };
+  },
+
 });
 
 /*****************************************************************************/
