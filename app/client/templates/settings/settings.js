@@ -68,24 +68,22 @@ Template.Settings.events({
 Template.Settings.helpers({
 
   user: function() {
-    const user = Meteor.user();
+    let user = Meteor.user();
     if (user) {
       if (user.services) {
         if (user.services.facebook) {
           const fb = user.services.facebook;
-          return {
+          user = {
             name: fb.name,
             email: fb.email,
             picture: "http://graph.facebook.com/" + fb.id + "/picture/?type=large",
-            supportedTeamFlag: 'tbd',
           }
         } else if (user.services.google) {
           const google = user.services.google;
-          return {
+          user = {
             name: google.name,
             email: google.email,
             picture: google.picture,
-            supportedTeamFlag: 'tbd',
           }
         } else {
           user.picture = '/images/profile-default.png';
