@@ -71,6 +71,18 @@
       "css": "mail",
       "code": 59402,
       "src": "fontawesome"
+    },
+    {
+      "uid": "53d4dc777eeba379412efba3ee1cac9e",
+      "css": "facebook",
+      "code": 59403,
+      "src": "mfglabs"
+    },
+    {
+      "uid": "f06fe7ff18d1c591bc1183cb3ab105e9",
+      "css": "google",
+      "code": 59404,
+      "src": "fontawesome"
     }
   ]
 }
