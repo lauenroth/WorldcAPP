@@ -11,6 +11,8 @@ Accounts.onCreateUser(function(options, user) {
   } else if (user.services) {
     if (user.services.facebook) {
       user.profile.name = user.services.facebook.name;
+    } else if (user.services.google) {
+      user.profile.name = user.services.google.name;
     }
   }
   user.profile.supportedTeam = 'tbd';
