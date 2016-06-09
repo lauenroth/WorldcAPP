@@ -6,7 +6,7 @@ CommunitySchema = new SimpleSchema({
 
   name: {
     type: String,
-    label: 'Name'
+    label: 'Name',
   },
 
   members: {
@@ -42,7 +42,7 @@ CommunitySchema = new SimpleSchema({
 
   isPublic: {
     type: Boolean,
-    label: 'Is public'
+    label: 'Is public',
   },
 
   admin: {
@@ -59,15 +59,29 @@ Communities.attachSchema(CommunitySchema);
 
 
 /* Access */
-var whitelist = _.filter(_.keys(CommunitySchema), function (property) {
-  return CommunitySchema[property].editable;
-});
-
-
 Communities.allow({
+  insert: function() {
+    return true;
+  },
   update: function (userId, doc, fields, modifier) {
-    if (userId && doc.admin === userId && _.difference(fields, whitelist).length === 0) {
+    const allowedFields = {
+      admin: ['name', 'members', 'pending', 'invites', 'rejected', 'isPublic'],
+    };
+    if (userId && doc.admin === userId && _.difference(fields, allowedFields.admin).length === 0) {
       return true;
+    }
+    console.log(modifier, userId);
+    if (userId) {
+      let allowedModifier = {
+        $addToSet: {pending: userId},
+      };
+      if (doc.isPublic) {
+        allowedModifier = {
+          $addToSet: {members: userId},
+        };
+      }
+      console.log(allowedModifier)
+      return _.isEqual(modifier, allowedModifier);
     }
   }
 });

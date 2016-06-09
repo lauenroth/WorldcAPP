@@ -22,7 +22,7 @@ msavin:mongol           # debugging
 
 iron:router             # Routing
 #autopublish             # Publish all data to the clients (for prototyping)
-insecure                # Allow all DB writes from clients (for prototyping)
+#insecure                # Allow all DB writes from clients (for prototyping)
 
 alanning:roles          # User roles
 accounts-base           # Accounts (basics)

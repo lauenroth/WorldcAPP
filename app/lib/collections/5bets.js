@@ -52,8 +52,11 @@ var whitelist = _.filter(_.keys(BetSchema), function (property) {
 
 
 Bets.allow({
+  insert: function() {
+    return true;
+  },
   update: function (userId, doc, fields, modifier) {
-    if (userId && doc.userId === userId && _.difference(fields, whitelist).length === 0) {
+    if (userId && doc.userId === userId) {
       return true;
     }
   }
