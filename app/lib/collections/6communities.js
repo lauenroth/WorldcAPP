@@ -48,9 +48,9 @@ CommunitySchema = new SimpleSchema({
   admin: {
     type: String,
     label: 'Admin',
-    autoValue: function() {
-      return Meteor.userId();
-    }
+    // autoValue: function() {
+    //   return Meteor.userId();
+    // }
   }
 
 });
