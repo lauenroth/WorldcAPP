@@ -70,6 +70,11 @@ Meteor.publish('users', function() {
       community.members.forEach(userId => {
         userIds.push(userId);
       });
+      if (this.userId === community.admin && community.pending) {
+        community.pending.forEach(pending => {
+          userIds.push(pending);
+        });
+      }
     });
     return Meteor.users.find({_id: {$in: userIds}});
   } else {
