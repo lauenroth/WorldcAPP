@@ -49,6 +49,16 @@ Meteor.publish('matches', function() {
 Meteor.publish('myBets', function() {
   return Bets.find({userId: this.userId});
 });
+Meteor.publish('memberBets', function() {
+  let userIds = [];
+  const myCommunities = Communities.find({members: this.userId});
+  myCommunities.forEach(community => {
+    community.members.forEach(userId => {
+      userIds.push(userId);
+    });
+  });
+  return Bets.find({userId: {$in: userIds}});
+});
 
 // Communities
 Meteor.publish('communities', function() {

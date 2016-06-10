@@ -97,6 +97,18 @@ var whitelist = _.filter(_.keys(TeamSchema), function (property) {
 
 Teams.allow({
   update: function (userId, doc, fields, modifier) {
+    let isAdmin = false;
+    const user = Meteor.user();
+    if (user.emails && user.emails.length) {
+      AdminConfig.adminEmails.forEach(email => {
+        if (email === user.emails[0].address) {
+          isAdmin = true;
+        }
+      });
+    }
+    if (isAdmin) {
+      return true;
+    }
     if (userId && doc.userId === userId && _.difference(fields, whitelist).length === 0) {
       return true;
     }

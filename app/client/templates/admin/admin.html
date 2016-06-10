@@ -1,4 +1,6 @@
 <template name="Dev">
+
+  {{#if isAdmin}}
   <h3>ADMIN</h3>
 
   <section class="main matches admin">
@@ -63,5 +65,7 @@
       <button type="submit" class="full">Save results</button>
     </form>
   </section>
+
+  {{/if}}
 
 </template>

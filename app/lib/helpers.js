@@ -26,3 +26,16 @@ Handlebars.registerHelper('userName', function(userId) {
   }
   return 'Anonymous';
 });
+
+Handlebars.registerHelper('isAdmin', function() {
+  let isAdmin = false;
+  const user = Meteor.user();
+  if (user.emails && user.emails.length) {
+    AdminConfig.adminEmails.forEach(email => {
+      if (email === user.emails[0].address) {
+        isAdmin = true;
+      }
+    });
+  }
+  return isAdmin;
+});

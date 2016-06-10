@@ -1,4 +1,5 @@
 Meteor.subscribe('users');
+Meteor.subscribe('memberBets');
 
 /*****************************************************************************/
 /* Community: Event Handlers */
