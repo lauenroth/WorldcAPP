@@ -17,7 +17,16 @@ Template.Menu.helpers({
 
   isActive: function(name) {
     return Session.get('menuItem') === name ? 'active' : '';
-  }
+  },
+
+  pendingRequests: function() {
+    let pendingRequests = 0;
+    const communities = Communities.find({admin: Meteor.userId(), pending: {$exists: 1}}).fetch();
+    communities.forEach(community => {
+      pendingRequests += community.pending.length;
+    });
+    return pendingRequests;
+  },
 
 });
 

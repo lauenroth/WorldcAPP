@@ -40,5 +40,14 @@ nav.main {
     display: block;
     font-size: 20px;
     margin: 0 auto;
+    position: relative;
+
+    sup {
+      font-size: 10px;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 15px;
+      padding: 0 4px;
+    }
   }
 }

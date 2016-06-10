@@ -221,3 +221,27 @@ hr {
 	border-top: 1px solid #c5dac1;
 	clear: both;
 }
+
+sup {
+	background-color: #e3ede1;
+	border: 1px solid #c5dac1;
+	border-radius: 12px;
+	display: inline-block;
+	font-size: 12px;
+	font-style: normal;
+	line-height: 19px;;
+	margin-left: -13px;
+	margin-right: -7px;
+	padding: 0 6px;
+	text-align: center;
+	top: -17px;
+}
+
+sup.pending {
+	background-color: lighten(#dd4b39, 30);
+	border-color: lighten(#dd4b39, 20);
+	color: #dd4b39;
+	position: absolute;
+	right: 0px;
+	top: 0;
+}

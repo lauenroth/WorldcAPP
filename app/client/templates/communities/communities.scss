@@ -55,19 +55,9 @@
     padding: 0 10px;
   }
 
-  sup {
-    background-color: #e3ede1;
-    border: 1px solid #c5dac1;
-    border-radius: 12px;
-    display: inline-block;
-    font-size: 12px;
-    font-style: normal;
-    line-height: 19px;;
-    margin-left: -13px;
-    margin-right: -7px;
-    padding: 0 6px;
-    text-align: center;
-    top: -17px;
+  .pending {
+    right: 60px;
+    top: 12px;
   }
 
   .buttons {

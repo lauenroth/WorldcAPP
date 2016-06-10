@@ -7,7 +7,14 @@
       {{/if}}
     </i>
     <div class="name">{{name}}</div>
-    <i class="icon-group right"><sup>{{members.length}}</sup></i>
+    <i class="icon-group right">
+      {{#if isAdmin}}
+        {{#if pending.length}}
+          <sup class="pending">{{pending.length}}</sup>
+        {{/if}}
+      {{/if}}
+      <sup>{{members.length}}</sup>
+    </i>
     <!-- <i class="icon-chat right"><sup>?</sup></i> -->
   </li>
 
