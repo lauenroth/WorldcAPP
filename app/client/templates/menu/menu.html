@@ -17,7 +17,9 @@
       <li>
         <a href="/communities" class="{{isActive 'community'}}">
           <i class="icon-chat">
+            {{#if pendingRequests}}
             <sup class="pending">{{pendingRequests}}</sup>
+            {{/if}}
           </i>
           <span>Community</span>
         </a>
