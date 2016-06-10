@@ -61,7 +61,7 @@ Template.Community.helpers({
       // TODO
       return Session.get('fbFriends');
     }
-    let members = Meteor.users.find({_id: {$in: this.members}}, {sort: {"profile.points": -1}}).fetch();
+    let members = Meteor.users.find({_id: {$in: this.members}}, {sort: {"profile.points": -1, "profile.name": 1}}).fetch();
     let rank = 1;
     let points = members[0].profile.points;
     members.forEach(member => {
@@ -90,7 +90,7 @@ Template.Community.helpers({
   },
 
   pendingRequests: function() {
-    if (this.pending) {
+    if (this.admin === Meteor.userId() && this.pending) {
       return Meteor.users.find({_id: {$in: this.pending}}, {sort: {"profile.name": 1}}).fetch();
     }
     return [];
