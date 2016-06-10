@@ -84,7 +84,17 @@ Template.Dev.events({
     // reset user points
     const users = Meteor.users.find().fetch();
     users.forEach(user => {
-      Meteor.users.update({_id: user._id}, {$set: {'profile.points': 0}});
+      let points = 0;
+      const matches = Matches.find({score1: {$exists: 1}}).fetch();
+      matches.forEach(match => {
+        const bet = Bets.findOne({match: match._id, userId: user._id});
+        const scores = {
+          team1: match.score1,
+          team2: match.score2,
+        };
+        points += calculatePoints(bet, scores);
+      });
+      Meteor.users.update({_id: user._id}, {$set: {'profile.points': points}});
     });
   },
 
