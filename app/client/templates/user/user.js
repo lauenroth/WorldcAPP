@@ -28,7 +28,8 @@ Template.User.helpers({
   },
 
   bets: function() {
-    const pastMatches = Matches.find({date: {$lt: new Date()}}, {sort: {date: 1}}).fetch();
+    const nowInUTC = moment.utc(moment().format('YYYY-MM-DD HH:mm:ss')).toDate();
+    const pastMatches = Matches.find({date: {$lt: nowInUTC}}, {sort: {date: 1}}).fetch();
     pastMatches.forEach(match => {
 
       match.team1name = match.team1.substr(9).replace('_',' ');

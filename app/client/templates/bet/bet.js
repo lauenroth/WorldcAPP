@@ -135,7 +135,8 @@ Template.Bet.helpers({
 
   canStillBet: function() {
     if (Session.get('currentMatch')) {
-      return Session.get('currentMatch').date > new Date();
+      const nowInUTC = moment.utc(moment().format('YYYY-MM-DD HH:mm:ss'));
+      return moment.utc(Session.get('currentMatch').date).isAfter(nowInUTC);
     }
     return false;
   },
