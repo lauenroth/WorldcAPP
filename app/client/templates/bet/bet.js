@@ -22,7 +22,7 @@ Template.Bet.saveBet = function() {
   const match = Session.get('currentMatch');
   const currentBet = Session.get('currentBet');
   if (currentBet.score1 !== undefined && currentBet.score2 !== undefined) {
-    const bet = Bets.findOne({match: match._id});
+    const bet = Bets.findOne({match: match._id, userId: Meteor.userId()});
     if (!bet) {
       const inserted = Bets.insert({
         match: match._id,
