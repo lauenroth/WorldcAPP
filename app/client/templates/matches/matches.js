@@ -55,7 +55,6 @@ Template.Matches.helpers({
       const matchDay = moment.utc(match.date).format('DD/MM/YYYY');
       if (!currentDay) {
         currentDay = matchDay;
-        Session.set('currentDay', currentDay);
       } else if (currentDay !== matchDay) {
         groupedMatches.push({
           day: currentDay,
@@ -90,6 +89,18 @@ Template.Matches.onRendered(function () {
 
   // add page swiping functionality
   $('.pages-wrapper').pageSwiper();
+
+  // scroll to current date
+  const today = moment().format('DD/MM/YYYY');
+  $('h3').each((index, h3) => {
+    const $h3 = $(h3);
+    if ($h3.html() === today) {
+      const $page = $('.page-switcher li:first').hasClass('active') ? $('.first-page') : $('.second-page');
+      $page.stop().animate({
+        scrollTop: $h3.offset().top - 40
+      }, 900, 'swing');
+    }
+  });
 
   // fix current date on top
   let currentH3 = null;
